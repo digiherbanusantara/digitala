@@ -113,7 +113,7 @@
                 <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               <!-- CRM Dropdown -->
-              <li class="nav-item dropdown-crm active">
+              <li class="nav-item dropdown-crm ">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   C R M
                 </a>
@@ -126,7 +126,7 @@
                 </div>
               </li>
 
-              <li class="nav-item dropdown-crm">
+              <li class="nav-item dropdown-crm active">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   ACQUISITION
                 </a>
@@ -180,7 +180,7 @@
       <div class="row">
         <!-- disini datatable nya -->
         <div class="col-12">
-          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">COD CRM</span></b></h1>
+          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">TF ACQUISITION</span></b></h1>
           <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Last 24 Hours</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
@@ -209,8 +209,10 @@
                   <th>Biaya Ongkir</th>
                   <th>Biaya Admin</th>
                   <th>Diskon Ongkir</th>
-                  <th>Total COD</th>
+                  <th>Total TF</th>
                   <th>Metode Pembayaran</th>
+                  <th>Bukti Transfer</th>
+                  <th>Nama Bank</th>
                   <th>Ekspedisi</th>
                   <th>Gudang</th>
                   <th>Nama CS</th>
@@ -341,110 +343,116 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbwMWz-gtEM-U8c3BgZ-KBceuzrqxXPKq9EiJenNBhVscheEY8gdxgdJOmDX34CenLAy/exec?getLast24Hours=true', function (data) {
-  // Jika ada data, masukkan ke dalam DataTable tanpa memformat ulang
-  if (data && data.length > 0) {
-    $('#data-table').DataTable({
-  data: data,
-  columns: [
-    { data: 'Date' },
-    { data: 'ID' },
-    { data: 'nama_customer' },
-    { data: 'no_hp_customer' },
-    { data: 'alamat', className: 'alamat' },
-    { data: 'kecamatan' },
-    { data: 'kabupaten_kota' },
-    { data: 'provinsi' },
-    { data: 'product' },
-    { data: 'qty' },
-    {
-      data: 'harga_product',
-      render: function (data, type, row) {
-        return formatRupiah(data);
+      $.getJSON('https://script.google.com/macros/s/AKfycbwMWz-gtEM-U8c3BgZ-KBceuzrqxXPKq9EiJenNBhVscheEY8gdxgdJOmDX34CenLAy/exec?getLast24Hours_tfak=true', function (data) {
+        // Jika ada data, masukkan ke dalam DataTable
+        if (data && data.length > 0) {
+          $('#data-table').DataTable({
+            data: data,
+            columns: [
+              { data: 'Date' },
+              { data: 'ID' },
+              { data: 'nama_customer' },
+              { data: 'no_hp_customer' },
+              { data: 'alamat', className: 'alamat' },
+              { data: 'kecamatan' },
+              { data: 'kabupaten_kota' },
+              { data: 'provinsi' },
+              { data: 'product' },
+              { data: 'qty' },
+              {
+                data: 'harga_product',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              { data: 'product2' },
+              { data: 'qty2' },
+              {
+                data: 'harga_product2',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              { data: 'product3' },
+              { data: 'qty3' },
+              {
+                data: 'harga_product3',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              { data: 'gift' },
+              {
+                data: 'biaya_ongkir',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              {
+                data: 'biaya_penanganan_tf',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              {
+                data: 'diskon_ongkir',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              {
+                data: 'total_tf',
+                render: function (data, type, row) {
+                  return formatRupiah(data);
+                }
+              },
+              { data: 'metode_pembayaran' },
+              {
+    data: 'bukti_transfer',
+    render: function (data, type, row) {
+      if (type === 'display' && data) {
+        return '<a href="' + data + '" target="_blank">Bukti Transfer</a>';
       }
-    },
-    { data: 'product2' },
-    { data: 'qty2' },
-    {
-      data: 'harga_product2',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    { data: 'product3' },
-    { data: 'qty3' },
-    {
-      data: 'harga_product3',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    
-    { data: 'gift' },
-    {
-      data: 'biaya_ongkir',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    {
-      data: 'biaya_penanganan',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    {
-      data: 'diskon_ongkir',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    {
-      data: 'total_cod',
-      render: function (data, type, row) {
-        return formatRupiah(data);
-      }
-    },
-    { data: 'metode_pembayaran' },
-    { data: 'ekspedisi' },
-    { data: 'gudang' },
-    { data: 'nama_cs' },
-    { data: 'nama_adv' },
-    { data: 'status_customer' },
-    { data: 'sumber_iklan' },
-    { data: 'note' }
-  ],
-  "createdRow": function (row, data, dataIndex) {
-    $(row).css('color', 'black');
-    // Tambahkan tooltip untuk kolom yang memiliki teks panjang
-    $('td', row).each(function () {
-      if (this.offsetWidth < this.scrollWidth) {
-        $(this).attr('title', $(this).text());
-      }
-    });
+      return data;
+    }
   },
-  "order": [[0, "desc"]]
-});
-
-// Fungsi untuk memformat ke dalam bentuk mata uang Rupiah
+              { data: 'nama_bank' },
+              { data: 'ekspedisi' },
+              { data: 'gudang' },
+              { data: 'nama_cs' },
+              { data: 'nama_adv' },
+              { data: 'status_customer' },
+              { data: 'sumber_iklan' },
+              { data: 'note' }
+              ],
+            "createdRow": function (row, data, dataIndex) {
+              $(row).css('color', 'black');
+              // Tambahkan tooltip untuk kolom yang memiliki teks panjang
+              $('td', row).each(function () {
+                if (this.offsetWidth < this.scrollWidth) {
+                  $(this).attr('title', $(this).text());
+                }
+              });
+            },
+            "order": [[0, "desc"]]
+          });
+          // Fungsi untuk memformat ke dalam bentuk mata uang Rupiah
 function formatRupiah(angka) {
   if (!angka) return 'Rp 0';
   return 'Rp ' + parseInt(angka).toLocaleString('id-ID');
 }
 
-
-    $('#about-content').show();
-    $('#data-table').show();
-    $('#data-table thead th').css('color', 'black');
-  } else {
-    alert("Tidak ada data yang ditemukan dalam 24 jam terakhir.");
-  }
-}).fail(function () {
-  alert("Gagal mengambil data dari server.");
-}).always(function () {
-  $('#loading-spinner').hide();
-});
-
+          $('#about-content').show();
+          $('#data-table').show();
+          $('#data-table thead th').css('color', 'black');
+        } else {
+          alert("Tidak ada data yang ditemukan dalam 24 jam terakhir.");
+        }
+      }).fail(function () {
+        alert("Gagal mengambil data dari server.");
+      }).always(function () {
+        $('#loading-spinner').hide();
+      });
     });
   </script>
 </body>

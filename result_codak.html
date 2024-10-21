@@ -113,7 +113,7 @@
                 <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               <!-- CRM Dropdown -->
-              <li class="nav-item dropdown-crm active">
+              <li class="nav-item dropdown-crm ">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   C R M
                 </a>
@@ -126,7 +126,7 @@
                 </div>
               </li>
 
-              <li class="nav-item dropdown-crm">
+              <li class="nav-item dropdown-crm active">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   ACQUISITION
                 </a>
@@ -180,7 +180,7 @@
       <div class="row">
         <!-- disini datatable nya -->
         <div class="col-12">
-          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">COD CRM</span></b></h1>
+          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">COD ACQUISITION</span></b></h1>
           <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Last 24 Hours</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
@@ -341,7 +341,7 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbwMWz-gtEM-U8c3BgZ-KBceuzrqxXPKq9EiJenNBhVscheEY8gdxgdJOmDX34CenLAy/exec?getLast24Hours=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbwMWz-gtEM-U8c3BgZ-KBceuzrqxXPKq9EiJenNBhVscheEY8gdxgdJOmDX34CenLAy/exec?getLast24Hours_codak=true', function (data) {
   // Jika ada data, masukkan ke dalam DataTable tanpa memformat ulang
   if (data && data.length > 0) {
     $('#data-table').DataTable({
