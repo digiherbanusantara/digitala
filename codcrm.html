@@ -373,7 +373,7 @@ function updateBiayaPenanganan() {
       // Jika tidak, jalankan logika perhitungan biaya penanganan seperti biasa
       if (ekspedisi === "NINJA") {
           if (totalProdukOngkir >= 200000) {
-              biayaPenanganan = totalProdukOngkir * 0.0025; // 3% dari total jika >= Rp 200.000
+              biayaPenanganan = totalProdukOngkir * 0.025; // 3% dari total jika >= Rp 200.000
           } else {
               biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
           }
