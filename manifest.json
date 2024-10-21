@@ -1,17 +1,17 @@
 {
-  "name": "OMNI APP",
-  "short_name": "OMNI APP",
-  "start_url": "/omni/index.html",
+  "name": "DIGITALA",
+  "short_name": "DIGITALA",
+  "start_url": "/digitala/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/omni/images/omni_pwa_2.png",
+      "src": "/digitala/images/omni_pwa_2.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/omni/images/omni_pwa_2.png",
+      "src": "/digitala/images/omni_pwa_2.png",
       "sizes": "512x512",
       "type": "image/png"
     }

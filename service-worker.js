@@ -2,15 +2,15 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open('my-cache').then(cache => {
       return cache.addAll([
-        '/omni/',
-        '/omni/index.html',
-        '/omni/about.html',
-        '/omni/login.html',
-        '/omni/css/style.css',
-        '/omni/js/main.js',
-        '/omni/codcrm.html',
-        '/omni/tfcrm.html',
-        '/omni/images/pwa.png'
+        '/digitala/',
+        '/digitala/index.html',
+        '/digitala/about.html',
+        '/digitala/login.html',
+        '/digitala/css/style.css',
+        '/digitala/js/main.js',
+        '/digitala/codcrm.html',
+        '/digitala/tfcrm.html',
+        '/digitala/images/pwa.png'
       ]);
     })
   );
