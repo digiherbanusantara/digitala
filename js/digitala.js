@@ -25,25 +25,60 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleProducts('.hide-3-product', false); // Also hide 3 Product
       btnThreeProducts.textContent = "3 Product";
       btnThreeProducts.classList.remove('cancel');
+      // Reset fields for product 2
+      resetFields('.hide-2-product');
+      resetFields('.hide-3-product'); // Also reset fields for product 3
     }
   });
 
   btnThreeProducts.addEventListener('click', function(event) {
     event.preventDefault();
     const isHidden = document.querySelector('.hide-3-product').style.display === 'none';
-    toggleProducts('.hide-3-product', isHidden);
+
+    // Ensure 2 Product section is shown when 3 Product is clicked
+    toggleProducts('.hide-2-product', true); // Show 2 Product section
+    btnTwoProducts.textContent = "Batalkan 2 Product"; // Update 2 Product button text
+    btnTwoProducts.classList.add('cancel');
+
+    toggleProducts('.hide-3-product', isHidden); // Toggle 3 Product section
 
     if (isHidden) { // Show 3 Product
       btnThreeProducts.textContent = "Batalkan 3 Product";
       btnThreeProducts.classList.add('cancel');
-      toggleProducts('.hide-2-product', true); // Ensure 2 Product is shown
-      btnTwoProducts.textContent = "Batalkan 2 Product";
-      btnTwoProducts.classList.add('cancel');
     } else { // Hide 3 Product
       btnThreeProducts.textContent = "3 Product";
       btnThreeProducts.classList.remove('cancel');
+      // Reset fields for product 3
+      resetFields('.hide-3-product');
     }
   });
+
+  function toggleProducts(selector, show) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(function(element) {
+      element.style.display = show ? 'block' : 'none';
+    });
+  }
+
+  // Function to reset fields when hiding product sections
+  function resetFields(selector) {
+    const elements = document.querySelectorAll(`${selector} input, ${selector} select`);
+    elements.forEach(function(element) {
+      if (element.tagName.toLowerCase() === 'select') {
+        element.selectedIndex = 0; // Reset select element to default
+      } else if (element.tagName.toLowerCase() === 'input') {
+        element.value = ''; // Clear input fields
+      }
+    });
+  }
+
+  function toggleVisibility(selector, hide) {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach(function(element) {
+      element.style.display = hide ? 'none' : 'block';
+    });
+  }
+
 
   // Event listener untuk submit form
   form.addEventListener('submit', function(event) {
@@ -160,7 +195,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-Tk-abn_9Lr613tL3jBEYRM3t1rh_olwgX2/exec')
+fetch('https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -175,9 +210,6 @@ fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-
   if (document.getElementById('gift')) {
     populateDropdown('gift', data.gift);
   }
-  if (document.getElementById('gift_akuisisi')) {
-    populateDropdown('gift_akuisisi', data.gift_akuisisi);
-  }
   if (document.getElementById('nama_cs')) {
     populateDropdown('nama_cs', data.nama_cs);
   }
@@ -186,6 +218,9 @@ fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-
   }
   if (document.getElementById('nama_cs_akuisisi')) {
     populateDropdown('nama_cs_akuisisi', data.nama_cs_akuisisi);
+  }
+  if (document.getElementById('gift_akuisisi')) {
+    populateDropdown('gift_akuisisi', data.gift_akuisisi);
   }
 })
 .catch(error => console.error('Error:', error));
@@ -354,7 +389,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-Tk-abn_9Lr613tL3jBEYRM3t1rh_olwgX2/exec')
+      fetch('https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec')
         .then(response => response.json())
         .then(data => {
           // Sort data provinsi sebelum mengisi dropdown
