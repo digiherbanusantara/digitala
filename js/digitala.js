@@ -160,7 +160,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec')
+fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-Tk-abn_9Lr613tL3jBEYRM3t1rh_olwgX2/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -174,6 +174,9 @@ fetch('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRr
   }
   if (document.getElementById('gift')) {
     populateDropdown('gift', data.gift);
+  }
+  if (document.getElementById('gift_akuisisi')) {
+    populateDropdown('gift_akuisisi', data.gift_akuisisi);
   }
   if (document.getElementById('nama_cs')) {
     populateDropdown('nama_cs', data.nama_cs);
@@ -351,7 +354,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbwQ0KTjPyWz1lbgms6eNowzZVhQ-sgVRrBm8Q5ol1OLnxwdpUqjivRMP6mWUWA_OE7e/exec')
+      fetch('https://script.google.com/macros/s/AKfycbzRnHTACfMdVgA6Y1frWhQpL6FumlFRg-Tk-abn_9Lr613tL3jBEYRM3t1rh_olwgX2/exec')
         .then(response => response.json())
         .then(data => {
           // Sort data provinsi sebelum mengisi dropdown
