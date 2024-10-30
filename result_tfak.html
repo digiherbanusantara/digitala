@@ -181,7 +181,7 @@
         <!-- disini datatable nya -->
         <div class="col-12">
           <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">TF ACQUISITION</span></b></h1>
-          <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Last 24 Hours</small>
+          <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">"Last 3 Month"</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
           <div class="datatable-wrapper">
@@ -343,7 +343,7 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec?getLast24Hours_tfak=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbx_pc0fgbB2M6J1LwXNaFOWtF78ndjkb505yFRUjW8O0ki1V-ZEh74j3GVDerIXxlDL/exec?getLast3Months_tfak=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           $('#data-table').DataTable({
@@ -446,7 +446,7 @@ function formatRupiah(angka) {
           $('#data-table').show();
           $('#data-table thead th').css('color', 'black');
         } else {
-          alert("Tidak ada data yang ditemukan dalam 24 jam terakhir.");
+          alert("Tidak ada data yang ditemukan dalam 3 bulan terakhir.");
         }
       }).fail(function () {
         alert("Gagal mengambil data dari server.");
