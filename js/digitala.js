@@ -195,7 +195,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec')
+fetch('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -389,7 +389,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec')
+      fetch('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec')
         .then(response => response.json())
         .then(data => {
           // Sort data provinsi sebelum mengisi dropdown
@@ -464,3 +464,13 @@ function showWarning(input) {
         }
       }
     });
+
+    	// Fungsi untuk menghapus karakter tanda petik tunggal dan petik belakang dari input
+	function validateAlamat(input) {
+	  input.value = input.value.replace(/['`]/g, ""); // Menghapus tanda petik tunggal dan petik belakang jika ditemukan
+	}
+	
+	// Menambahkan event listener pada kolom alamat
+	document.getElementById('alamat').addEventListener('input', function() {
+	  validateAlamat(this);
+	});

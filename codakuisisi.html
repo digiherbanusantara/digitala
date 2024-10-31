@@ -114,6 +114,11 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+			<div class="breadcrumb">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="getstarted.html">Get Started</a></li>
+				<li class="active" style="color: #f8842b;">Form COD CSA</li>
+			  </div>
 			<div class="form_container">
 				<div class="heading_container cod">
 					<h2>FORM ORDER <span style="color: #ffab6a;">COD CSA</span></h2>
@@ -129,7 +134,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbz_8cvKDIOIez5OaslyI7Jb36MDEuPPgdxZn8R7voeLRetDrnI9NQJ9N3fk3deLb-o-/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -363,7 +368,7 @@
 
   if (ekspedisi === "NINJA") {
       if (totalProdukOngkir >= 200000) {
-          biayaPenanganan = totalProdukOngkir * 0.0025; // 3% dari total jika >= Rp 200.000
+          biayaPenanganan = totalProdukOngkir * 0.025; // 3% dari total jika >= Rp 200.000
       } else {
           biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
       }

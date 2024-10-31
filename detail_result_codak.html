@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>DIGITALA</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+
+
+  <style>
+
+@media (max-width: 768px) {
+  .mobile-spacing {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+ .data-container {
+  flex: 1; /* Membuat container fleksibel dengan lebar yang sama */
+  display: flex;
+  flex-direction: column;
+}
+
+
+    .data-container p {
+      margin: 10px 0;
+    }
+
+    .data-container p strong {
+      color: #ff8640;
+    }
+
+
+    /* Styling untuk spinner loading */
+    #loading-spinner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 9999;
+    }
+
+    .spinner-border {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; /* Memberikan jarak antara item transaksi */
+  padding: 10px; /* Memberikan padding agar tampak lebih nyaman */
+  width: 100%; /* Memastikan memenuhi container */
+  border-bottom: 1px solid #e0e0e0; /* Garis bawah dengan warna abu-abu pudar */
+}
+
+.transaction-item strong {
+  width: 200px; /* Menentukan lebar kolom label agar rapi */
+  color: #ff8640; /* Warna untuk label */
+}
+
+.transaction-item span {
+  flex: 1;
+}
+
+  .layout_padding .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.layout_padding .container .row {
+  display: flex;
+  align-items: stretch; /* Agar kedua container memiliki tinggi yang sama */
+}
+.fa-custom {
+  color: #ff8640;
+  font-size: 1.2em; /* Ubah ukuran sesuai kebutuhan, misalnya 1.5em untuk lebih besar */
+}
+
+.table-row-spacing tr {
+  display: block; /* Mengubah <tr> menjadi blok untuk bisa menggunakan margin */
+  margin-bottom: 10px; /* Mengatur jarak bawah antar baris */
+}
+
+.table-row-spacing td {
+  padding: 20px; /* Menambahkan padding ke setiap cell */
+  /* border-bottom: 1px solid #ddd; Tambahkan garis bawah jika ingin memisahkan baris */
+}
+
+.fa-copy-icon {
+  cursor: pointer;
+  margin-left: 10px;
+  color: #000000; /* Warna ikon copy */
+  font-size: 1em; /* Atur ukuran ikon agar tidak terlalu besar */
+}
+
+.fa-copy-icon:hover {
+  color: #e67332; /* Warna saat ikon disorot */
+}
+
+
+
+#basic-info,
+#transaction-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: auto; /* Menyesuaikan tinggi dengan container lainnya */
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-height: 100%;
+}
+
+#basic-info {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  min-height: 100%;
+}
+
+  </style>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              DIGITALA
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <!-- CRM Dropdown -->
+              <li class="nav-item dropdown-crm">
+                <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  C R M
+                </a>
+                <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
+                  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
+                  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
+                  <hr style="border: 1px solid #ccc; margin: 1px 0;">
+                  <a class="dropdown-item-crm" href="result_codcrm.html">Result COD CRM</a>
+                  <a class="dropdown-item-crm" href="result_tfcrm.html">Result TF CRM</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown-crm active">
+                <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
+                  CSA
+                </a>
+                <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
+                  <a class="dropdown-item-crm" href="codakuisisi.html">Form COD CSA</a>
+                  <a class="dropdown-item-crm" href="tfakuisisi.html">Form TF CSA</a>
+                  <hr style="border: 1px solid #ccc; margin: 1px 0;">
+                  <a class="dropdown-item-crm" href="result_codak.html">Result COD CSA</a>
+                  <a class="dropdown-item-crm" href="result_tfak.html">Result TF CSA</a>
+                </div>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="about.html" style="margin-right: 10px;">Module</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link logout-mobile" href="#" onclick="logout()" style="margin-right: 10px; color: #ffab6a;">Logout</a>
+              </li>
+            </ul>
+            <div class="quote_btn-container">
+              <a href="#" class="quote_btn" onclick="logout()">Logout</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <div class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="getstarted.html">Get Started</a></li>
+    <li><a href="result_codak.html">Result COD CSA</a></li>
+    <li class="active" style="color: #f8842b;">Detail COD CSA</li>
+  </div>
+  <section class="layout_padding layout_margin">
+    <div class="container" id="about-content">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 id="page-title" style="text-align: center; margin-bottom: 20px; color: black;"><b>DETAIL RESULT | <span style="color: #f8842b;">COD CRM</span></b></h1>
+          
+          <hr style="border: 1px solid #ccc; margin: 20px 0;">
+        </div>
+        <div class="col-md-4">
+
+        
+          <!-- Bagian 1: Informasi Dasar Pelanggan -->
+          <div id="basic-info" class="data-container mb-4">Loading data...</div>
+        </div>
+        <div class="col-md-8">
+          <!-- Bagian 2: Detail Transaksi -->
+          <div id="transaction-details" class="data-container mb-4">Loading data...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+  <hr style="border: 1px solid #ccc; margin: 20px 0;">
+  <div class="footer_container">
+    <!-- info section -->
+
+    <section class="info_section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 ">
+            <div class="info_detail">
+              <h4>
+                DIGITALA
+              </h4>
+              <h5>PT DIGI HERBA NUSANTARA</h5><br></h5>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-2 mx-auto">
+            <div class="info_link_box">
+              <h4>
+                Links
+              </h4>
+              <div class="info_links">
+                <a class="" href="index.html">
+                  Home
+                </a>
+                <a class="" href="codcrm.html">
+                  Form COD CRM
+                </a>
+                <a class="" href="tfcrm.html">
+                  Form TF CRM
+                </a>
+                <a class="" href="about.html">
+                  About
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 ">
+            <h4>
+              Suggestion
+            </h4>
+            <form action="#">
+              <input type="text" placeholder="Enter Suggestion" style="border: 1px solid black; padding: 10px; width: 100%; color: black;">
+
+              <button type="submit">
+                Submit
+              </button>
+            </form>
+          </div>
+          <div class="col-md-6 col-lg-3 mb-0 ml-auto">
+            <div class="info_contact">
+              <h4>
+                Address
+              </h4>
+              <div class="contact_link_box">
+                <a href="">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span>
+                    Brand Strategic Office | Digi Herba Nusantara
+                  </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <span>
+                    +62 81227281184
+                  </span>
+                </a>
+                <a href="">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span>
+                    imam.dhn13@gmail.com
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end info section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="#">Data Analyst | PT Digi Herba Nusantara</a>
+        </p>
+      </div>
+    </footer>
+    <!-- footer section -->
+  </div>
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/digitala.js"></script>
+  <!-- DataTables JS -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+  <div id="data-container"></div>
+
+  <style>
+  .transaction-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .transaction-item strong {
+    width: 200px; /* Tentukan lebar untuk label agar sejajar */
+  }
+  .transaction-item span {
+    flex: 1;
+  }
+</style>
+
+<!-- SweetAlert JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+
+<script>
+  // Fungsi untuk memformat angka ke dalam format Rupiah
+  function formatRupiah(angka) {
+    // Konversi angka ke integer, atau jadikan 0 jika tidak valid
+    const nilai = parseInt(angka) || 0;
+
+    // Kembalikan format Rupiah dengan memastikan nilai 0 ditampilkan sebagai 'Rp 0'
+    return 'Rp ' + nilai.toLocaleString('id-ID');
+}
+
+  // Ambil parameter ID dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+
+  // Ambil detail data berdasarkan ID
+  if (id) {
+    document.getElementById('page-title').innerHTML = `<b>DETAIL ID: <span style="color: #f8842b;">${id}</span> </b>`;
+    // Ambil detail data berdasarkan ID
+    fetch(`https://script.google.com/macros/s/AKfycbxNMSGd873__0umwnxTnCvGHBLvX9Tx2b84FL6rGoSO_z3I040nup-Kv1AxlXsfVeis/exec?action=getDetailCodAk&id=${id}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+  if (data && !data.error) {
+    // Bagian 1: Informasi Dasar Pelanggan menggunakan tabel
+    let basicInfoContent = `
+      <div class="mb-4">
+        <h4 class="mb-4" style="text-align: center;"><strong>Detail Customer</strong></h4>
+        <hr style="border: 1px solid #ccc; margin: 1px 0;">
+        <table class="table-row-spacing" style="width: 100%; border-collapse: collapse;">
+          <tbody>
+            <tr>
+              <td style="width: 40px;"><i class="fa-custom"><strong>ID</strong></i></td>
+              <td style="border-bottom: 1px solid #e0e0e0;">${data.ID} <i class="fa-regular fa-copy fa-copy-icon" onclick="copyToClipboard('${data.ID}')"></i></td>
+            </tr>
+            <tr>
+              <td style="width: 40px;"><i class="fa-solid fa-user fa-custom"></i></td>
+              <td style="border-bottom: 1px solid #e0e0e0;">${data.nama_customer} <i class="fa-regular fa-copy fa-copy-icon" onclick="copyToClipboard('${data.nama_customer}')"></i></td>
+            </tr>
+            <tr>
+              <td style="width: 40px;"><i class="fas fa-phone-alt fa-custom"></i></td>
+              <td style="border-bottom: 1px solid #e0e0e0;">${data.no_hp_customer} <i class="fa-regular fa-copy fa-copy-icon" onclick="copyToClipboard('${data.no_hp_customer}')"></i></td>
+            </tr>
+            <tr>
+              <td style="width: 40px;"><i class="fas fa-map-marker-alt fa-custom"></i></td>
+              <td style="border-bottom: 1px solid #e0e0e0;">${data.alamat} <i class="fa-regular fa-copy fa-copy-icon" onclick="copyToClipboard('${data.alamat}')"></i></td>
+            </tr>
+            <tr>
+              <td style="width: 40px;"><i class="fa-solid fa-globe fa-custom"></i></td>
+              <td style="border-bottom: 1px solid #e0e0e0;">${data.kecamatan}, ${data.kabupaten_kota}, PROVINSI ${data.provinsi} <i class="fa-regular fa-copy fa-copy-icon" onclick="copyToClipboard('${data.kecamatan}, ${data.kabupaten_kota}, PROVINSI ${data.provinsi}')"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    // Bagian 2: Detail Transaksi
+    let transactionDetailsContent = `
+      <div class="mb-4">
+        <h4 class="mb-4" style="text-align: center;"><strong>Detail Order</strong></h4>
+    `;
+
+    // Transaksi 1
+    if (data.product && data.qty && data.harga_product) {
+      transactionDetailsContent += `
+        <div class="transaction-item">
+          <strong>Detail Product 1</strong>
+          <span>: ${data.product} ${data.qty} | ${formatRupiah(data.harga_product)}</span>
+        </div>`;
+    }
+
+    // Transaksi 2
+    if (data.product2 && data.qty2 && data.harga_product2) {
+      transactionDetailsContent += `
+        <div class="transaction-item">
+          <strong>Detail Product 2</strong>
+          <span>: ${data.product2} ${data.qty2} | ${formatRupiah(data.harga_product2)}</span>
+        </div>`;
+    }
+
+    // Transaksi 3
+    if (data.product3 && data.qty3 && data.harga_product3) {
+      transactionDetailsContent += `
+        <div class="transaction-item">
+          <strong>Detail Product 3</strong>
+          <span>: ${data.product3} ${data.qty3} | ${formatRupiah(data.harga_product3)}</span>
+        </div>`;
+    }
+
+    // Informasi lainnya
+    transactionDetailsContent += `
+        <div class="transaction-item"><strong>Gift</strong><span>: ${data.gift}</span></div>
+        <div class="transaction-item"><strong>Biaya Ongkir</strong><span>: ${formatRupiah(data.biaya_ongkir)}</span></div>
+        <div class="transaction-item"><strong>Biaya Penanganan</strong><span>: ${formatRupiah(data.biaya_penanganan)}</span></div>
+        <div class="transaction-item"><strong>Diskon Ongkir</strong><span>: ${formatRupiah(data.diskon_ongkir)}</span></div>
+        <div class="transaction-item"><strong>Total COD</strong><span>: <strong style="color:#000">${formatRupiah(data.total_cod)}</strong></span></div>
+        </br>
+        </br>
+        <div class="transaction-item"><strong>Metode Pembayaran</strong><span>: ${data.metode_pembayaran}</span></div>
+        <div class="transaction-item"><strong>Ekspedisi</strong><span>: ${data.ekspedisi}</span></div>
+        <div class="transaction-item"><strong>Gudang</strong><span>: ${data.gudang}</span></div>
+        <div class="transaction-item"><strong>Nama CS</strong><span>: ${data.nama_cs}</span></div>
+        <div class="transaction-item"><strong>Nama Adv</strong><span>: ${data.nama_adv}</span></div>
+        <div class="transaction-item"><strong>Status Customer</strong><span>: ${data.status_customer}</span></div>
+        <div class="transaction-item"><strong>Sumber Iklan</strong><span>: ${data.sumber_iklan}</span></div>
+        <div class="transaction-item"><strong>Note</strong><span>: ${data.note}</span></div>
+      </div>
+    `;
+
+    document.getElementById('basic-info').innerHTML = basicInfoContent;
+    document.getElementById('transaction-details').innerHTML = transactionDetailsContent;
+  } else {
+    document.getElementById('basic-info').innerHTML = 'Data tidak ditemukan atau terjadi kesalahan.';
+    document.getElementById('transaction-details').innerHTML = '';
+  }
+})
+
+
+
+
+
+
+
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        document.getElementById('basic-info').innerHTML = `Gagal mengambil data dari server: ${error.message}`;
+        document.getElementById('transaction-details').innerHTML = '';
+      });
+  } else {
+    document.getElementById('basic-info').innerHTML = 'ID tidak ditemukan di URL.';
+    document.getElementById('transaction-details').innerHTML = '';
+  }
+
+  function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    swal({
+      title: "Berhasil!",
+      text: "Text berhasil disalin ke clipboard",
+      icon: "success",
+      timer: 1500, // Durasi 2 detik
+      buttons: false, // Tidak ada tombol, auto close
+    });
+  }).catch(err => {
+    swal({
+      title: "Gagal",
+      text: "Gagal menyalin teks: " + err,
+      icon: "error",
+      timer: 1500, // Durasi 2 detik
+      buttons: false, // Tidak ada tombol, auto close
+    });
+  });
+}
+
+
+</script>
+
+<div id="basic-info"></div>
+<div id="transaction-details"></div>
+</body>
+
+</html>

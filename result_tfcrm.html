@@ -87,6 +87,8 @@
       white-space: normal;
     }
 
+    
+
   </style>
 </head>
 
@@ -169,7 +171,11 @@
   </div>
 
   <!-- about section -->
-
+  <div class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="getstarted.html">Get Started</a></li>
+    <li class="active" style="color: #f8842b;">Result TF CRM</li>
+  </div>
   <section class="about_section layout_padding layout_margin">
     <div id="loading-spinner">
       <div class="spinner-border text-warning" role="status">
@@ -181,7 +187,7 @@
         <!-- disini datatable nya -->
         <div class="col-12">
           <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">TF CRM</span></b></h1>
-          <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">"Last 3 Month"</small>
+          <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Data : Last 3 Month</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
           <div class="datatable-wrapper">
@@ -192,7 +198,7 @@
                   <th>ID</th>
                   <th>Nama Customer</th>
                   <th>No HP Customer</th>
-                  <th class="alamat">Alamat</th>
+                  <!-- <th class="alamat">Alamat</th>
                   <th>Kecamatan</th>
                   <th>Kabupaten/Kota</th>
                   <th>Provinsi</th>
@@ -210,16 +216,16 @@
                   <th>Biaya Admin</th>
                   <th>Diskon Ongkir</th>
                   <th>Total TF</th>
-                  <th>Metode Pembayaran</th>
+                  <th>Metode Pembayaran</th> -->
                   <th>Bukti Transfer</th>
-                  <th>Nama Bank</th>
-                  <th>Ekspedisi</th>
+                  <!-- <th>Nama Bank</th>
+                  <th>Ekspedisi</th> -->
                   <th>Gudang</th>
                   <th>Nama CS</th>
-                  <th>Nama Adv</th>
+                  <!-- <th>Nama Adv</th> -->
                   <th>Status Customer</th>
                   <th>Sumber Iklan</th>
-                  <th>Note</th>
+                  <!-- <th>Note</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -343,70 +349,75 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbx_pc0fgbB2M6J1LwXNaFOWtF78ndjkb505yFRUjW8O0ki1V-ZEh74j3GVDerIXxlDL/exec?getLast3Months_tfcrm=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec?getLast3Months_tfcrm=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           $('#data-table').DataTable({
             data: data,
             columns: [
               { data: 'Date' },
-              { data: 'ID' },
+              {
+                data: 'ID',
+                render: function (data, type, row) {
+                  return `<a href="detail_result_tfcrm.html?id=${data}">${data}</a>`;
+                }
+              },
               { data: 'nama_customer' },
               { data: 'no_hp_customer' },
-              { data: 'alamat', className: 'alamat' },
-              { data: 'kecamatan' },
-              { data: 'kabupaten_kota' },
-              { data: 'provinsi' },
-              { data: 'product' },
-              { data: 'qty' },
-              {
-                data: 'harga_product',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              { data: 'product2' },
-              { data: 'qty2' },
-              {
-                data: 'harga_product2',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              { data: 'product3' },
-              { data: 'qty3' },
-              {
-                data: 'harga_product3',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              { data: 'gift' },
-              {
-                data: 'biaya_ongkir',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              {
-                data: 'biaya_penanganan_tf',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              {
-                data: 'diskon_ongkir',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              {
-                data: 'total_tf',
-                render: function (data, type, row) {
-                  return formatRupiah(data);
-                }
-              },
-              { data: 'metode_pembayaran' },
+              // { data: 'alamat', className: 'alamat' },
+              // { data: 'kecamatan' },
+              // { data: 'kabupaten_kota' },
+              // { data: 'provinsi' },
+              // { data: 'product' },
+              // { data: 'qty' },
+              // {
+              //   data: 'harga_product',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // { data: 'product2' },
+              // { data: 'qty2' },
+              // {
+              //   data: 'harga_product2',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // { data: 'product3' },
+              // { data: 'qty3' },
+              // {
+              //   data: 'harga_product3',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // { data: 'gift' },
+              // {
+              //   data: 'biaya_ongkir',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // {
+              //   data: 'biaya_penanganan_tf',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // {
+              //   data: 'diskon_ongkir',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // {
+              //   data: 'total_tf',
+              //   render: function (data, type, row) {
+              //     return formatRupiah(data);
+              //   }
+              // },
+              // { data: 'metode_pembayaran' },
               {
     data: 'bukti_transfer',
     render: function (data, type, row) {
@@ -416,14 +427,14 @@
       return data;
     }
   },
-              { data: 'nama_bank' },
-              { data: 'ekspedisi' },
+              // { data: 'nama_bank' },
+              // { data: 'ekspedisi' },
               { data: 'gudang' },
               { data: 'nama_cs' },
-              { data: 'nama_adv' },
+              // { data: 'nama_adv' },
               { data: 'status_customer' },
               { data: 'sumber_iklan' },
-              { data: 'note' }
+              // { data: 'note' }
               ],
             "createdRow": function (row, data, dataIndex) {
               $(row).css('color', 'black');
