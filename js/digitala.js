@@ -392,75 +392,74 @@ function showWarning(input) {
       fetch('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec')
         .then(response => response.json())
         .then(data => {
-          // Sort data provinsi sebelum mengisi dropdown
-          const sortedProvinsi = [...new Set(data.alamat.map(item => item[0]))].sort(); // Ambil provinsi unik lalu urutkan
-          populateProvinsi(sortedProvinsi, data.alamat); // Menyesuaikan dengan data.alamat dari Google Apps Script
+          const sortedProvinsi = [...new Set(data.alamat.map(item => item[0]))].sort();
+          populateProvinsi(sortedProvinsi, data.alamat);
         });
-    
-      // Function to populate the 'Provinsi' dropdown
+
       function populateProvinsi(sortedProvinsi, alamat) {
-        var provinsiDropdown = document.getElementById("provinsi");
-    
+        var provinsiDropdown = $('#provinsi');
+
         sortedProvinsi.forEach(function (prov) {
-          var option = document.createElement("option");
-          option.value = prov; // Nama Provinsi
-          option.text = prov; // Nama Provinsi
-          provinsiDropdown.appendChild(option);
+          var option = new Option(prov, prov, false, false);
+          provinsiDropdown.append(option);
         });
-    
-        // Setelah Provinsi diisi, kita lanjutkan untuk menangani dependent dropdown
+
         handleDependentDropdown(alamat);
+
+        // Initialize Select2 on Provinsi dropdown
+        $('.searchable-dropdown').select2({
+          placeholder: 'Pilih Provinsi',
+          allowClear: true
+        });
+
+        $('.searchable-dropdown-city').select2({
+          placeholder: 'Pilih Kabupaten / Kota',
+          allowClear: true
+        });
+        $('.searchable-dropdown-district').select2({
+          placeholder: 'Pilih Kecamatan',
+          allowClear: true
+        });
       }
-    
-      // Function to handle dependent dropdown for Kabupaten/Kota and Kecamatan
+
       function handleDependentDropdown(alamat) {
-        var kabupatenDropdown = document.getElementById("kabupaten_kota");
-        var kecamatanDropdown = document.getElementById("kecamatan");
-    
-        // Event listener for Provinsi dropdown change
-        document.getElementById("provinsi").addEventListener("change", function () {
-          var selectedProvinsi = this.value;
-    
-          // Reset Kabupaten/Kota and Kecamatan when Provinsi is selected again
-          kabupatenDropdown.innerHTML = "<option value='' disabled selected hidden>Pilih Kabupaten/Kota</option>"; // Reset Kabupaten/Kota dropdown
-          kecamatanDropdown.innerHTML = "<option value='' disabled selected hidden>Pilih Kecamatan</option>"; // Reset Kecamatan dropdown
-    
-          // Sort kabupaten based on selected provinsi
+        var kabupatenDropdown = $('#kabupaten_kota');
+        var kecamatanDropdown = $('#kecamatan');
+
+        $('#provinsi').on('change', function () {
+          var selectedProvinsi = $(this).val();
+          kabupatenDropdown.html('<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>');
+          kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
+
           const filteredKabupaten = alamat.filter(item => item[0] === selectedProvinsi).map(item => item[1]);
-          const sortedKabupaten = [...new Set(filteredKabupaten)].sort((a, b) => a.localeCompare(b)); // Sort with localeCompare for string sorting
-    
-          populateKabupaten(sortedKabupaten); // Populate Kabupaten/Kota based on the selected Provinsi
+          const sortedKabupaten = [...new Set(filteredKabupaten)].sort((a, b) => a.localeCompare(b));
+
+          populateKabupaten(sortedKabupaten);
         });
-    
-        // Event listener for Kabupaten/Kota dropdown change
-        document.getElementById("kabupaten_kota").addEventListener("change", function () {
-          var selectedKabupaten = this.value;
-          kecamatanDropdown.innerHTML = "<option value='' disabled selected hidden>Pilih Kecamatan</option>"; // Reset Kecamatan dropdown saat kabupaten dipilih ulang
-    
-          // Sort kecamatan based on selected kabupaten
+
+        $('#kabupaten_kota').on('change', function () {
+          var selectedKabupaten = $(this).val();
+          kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
+
           const filteredKecamatan = alamat.filter(item => item[1] === selectedKabupaten).map(item => item[2]);
-          const sortedKecamatan = [...new Set(filteredKecamatan)].sort((a, b) => a.localeCompare(b)); // Sort with localeCompare for string sorting
-          populateKecamatan(sortedKecamatan); // Populate Kecamatan based on the selected Kabupaten/Kota
+          const sortedKecamatan = [...new Set(filteredKecamatan)].sort((a, b) => a.localeCompare(b));
+          populateKecamatan(sortedKecamatan);
         });
-    
-        // Populate Kabupaten/Kota based on selected Provinsi
+
         function populateKabupaten(sortedKabupaten) {
           sortedKabupaten.forEach(function (kab) {
-            var option = document.createElement("option");
-            option.value = kab; // Nama Kabupaten
-            option.text = kab; // Nama Kabupaten
-            kabupatenDropdown.appendChild(option);
+            var option = new Option(kab, kab, false, false);
+            kabupatenDropdown.append(option);
           });
+          kabupatenDropdown.trigger('change');
         }
-    
-        // Populate Kecamatan based on selected Kabupaten/Kota
+
         function populateKecamatan(sortedKecamatan) {
           sortedKecamatan.forEach(function (kec) {
-            var option = document.createElement("option");
-            option.value = kec; // Nama Kecamatan
-            option.text = kec; // Nama Kecamatan
-            kecamatanDropdown.appendChild(option);
+            var option = new Option(kec, kec, false, false);
+            kecamatanDropdown.append(option);
           });
+          kecamatanDropdown.trigger('change');
         }
       }
     });

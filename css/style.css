@@ -1309,3 +1309,13 @@ color: white;
     .breadcrumb > li a:hover {
       text-decoration: underline;
     }
+
+    .select2-container .select2-selection__placeholder {
+      /* padding-left: 10px; */
+      font-size: 14px;
+    }
+
+    .select2-container .select2-selection--single {
+      border-radius: 8px !important;
+      padding-left: 10px;
+    }
