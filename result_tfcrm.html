@@ -352,6 +352,8 @@
   <script src="js/digitala.js"></script>
   <!-- DataTables JS -->
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
@@ -361,7 +363,17 @@
           $('#data-table').DataTable({
             data: data,
             columns: [
-              { data: 'Date' },
+            {
+        data: 'Date',
+        render: function (data, type, row) {
+          if (type === 'display' || type === 'filter') {
+            return data; // Tampilkan dalam format DD/MM/YYYY HH:mm:ss
+          } else if (type === 'sort') {
+            return moment(data, 'DD/MM/YYYY HH:mm:ss').format('YYYYMMDDHHmmss'); // Ubah ke format lengkap YYYYMMDDHHmmss untuk pengurutan
+          }
+          return data;
+        }
+      },
               {
                 data: 'ID',
                 render: function (data, type, row) {
