@@ -473,3 +473,21 @@ function showWarning(input) {
 	document.getElementById('alamat').addEventListener('input', function() {
 	  validateAlamat(this);
 	});
+
+
+
+
+  //tidak boleh ada spasi di awal nama customer
+  function validateNamaCustomer(input) {
+    // Convert to uppercase
+    input.value = input.value.toUpperCase();
+  
+    // Validate: no leading space, space allowed only after second character
+    const pattern = /^[^\s][A-Z ]*$/;
+    if (!pattern.test(input.value)) {
+      input.value = input.value.trimStart(); // Remove leading spaces if any
+      if (input.value.length >= 2) {
+        input.value = input.value.replace(/(\w{2})(\s+)/, '$1 '); // Ensure spaces are allowed after 2 characters
+      }
+    }
+  }
