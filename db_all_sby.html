@@ -113,7 +113,7 @@
                 <a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
               </li>
               <!-- CRM Dropdown -->
-              <li class="nav-item dropdown-crm active">
+              <li class="nav-item dropdown-crm">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   C R M
                 </a>
@@ -150,7 +150,7 @@
                 </div>
               </li> -->
 
-              <li class="nav-item dropdown-crm">
+              <li class="nav-item dropdown-crm active">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
                   RESI
                 </a>
@@ -158,7 +158,7 @@
                   <a class="dropdown-item-crm" href="db_all_sby.html">RESI GD SBY</a>
                   <a class="dropdown-item-crm" href="#.html">RESI GD PAMULANG</a>
                 </div>
-                </li>
+              </li>
 
               <li class="nav-item dropdown-crm">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
@@ -200,7 +200,7 @@
       <div class="row">
         <!-- disini datatable nya -->
         <div class="col-12">
-          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>RESULTS | <span style="color: #f8842b;">COD CRM</span></b></h1>
+          <h1 style="text-align: center; margin-bottom: 20px; color: black;"><b>ALL DB | <span style="color: #f8842b;">SURABAYA WAREHOUSE</span></b></h1>
           <small class="form-text text-muted" style="text-align: center; margin-bottom: 20px;">Data : Last 3 Month</small>
           <hr style="border: 1px solid #ccc; margin: 20px 0;">
           <!-- Wrapper untuk DataTable -->
@@ -208,36 +208,34 @@
             <table id="data-table" class="display" style="width: 100%;">
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>ID</th>
-                  <th>Nama Customer</th>
-                  <th>No HP Customer</th>
-                  <!-- <th class="alamat">Alamat</th>
-                  <th>Kecamatan</th>
-                  <th>Kabupaten/Kota</th>
-                  <th>Provinsi</th>
-                  <th>Product¹</th>
-                  <th>Qty¹</th>
-                  <th>Harga Product¹</th>
-                  <th>Product²</th>
-                  <th>Qty²</th>
-                  <th>Harga Product²</th>
-                  <th>Product³</th>
-                  <th>Qty³</th>
-                  <th>Harga Product³</th>
-                  <th>Gift</th>
-                  <th>Biaya Ongkir</th>
-                  <th>Biaya Admin</th>
-                  <th>Diskon Ongkir</th>
-                  <th>Total COD</th>
-                  <th>Metode Pembayaran</th> -->
-                  <!-- <th>Ekspedisi</th> -->
-                  <th>Gudang</th>
-                  <th>Nama CS</th>
-                  <!-- <th>Nama Adv</th> -->
+                  <!-- <th>No</th> -->
+                  <th>Status</th>
+                  <th>Tanggal Kirim</th>
+                  <th>No Resi</th>
+                  <th>Nama</th>
                   <th>Status Customer</th>
-                  <th>Sumber Iklan</th>
-                  <!-- <th>Note</th> -->
+                  <th>Alamat</th>
+                  <th>No HP</th>
+                  <th>Product</th>
+                  <th>Volume</th>
+                  <!-- <th>Harga Closing</th>
+                  <th>Value</th>
+                  <th>Ongkir</th>
+                  <th>Fix Total</th>
+                  <th>Biaya NINJA</th>
+                  <th>Biaya JNE</th>
+                  <th>Subsidi Ongkir</th>
+                  <th>Jumlah Transfer</th>
+                  <th>Rekening</th>
+                  <th>Ekspedisi</th>
+                  <th>Bruto</th>
+                  <th>Index</th>
+                  <th>CS</th>
+                  <th>ADV</th> -->
+                  <!-- <th>Tanggal TF</th>
+                  <th>Gift</th> -->
+                  <!-- <th>Promo</th> -->
+                  
                 </tr>
               </thead>
               <tbody>
@@ -364,92 +362,61 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbx_pc0fgbB2M6J1LwXNaFOWtF78ndjkb505yFRUjW8O0ki1V-ZEh74j3GVDerIXxlDL/exec?getLast3MonthsCodCrm=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbypfrj4kJE_yO_34Ij4lnBkai1qTZ9XzKlq5p6patSZZOw1PQuGTn-PTxGmnDA26Pxe/exec?getDetailAllDataSby=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           $('#data-table').DataTable({
             data: data,
             columns: [
+
             {
-        data: 'Date',
+              data: 'status',
+              render: function (data, type, row) {
+                if (data) {
+                  return '<i class="fa fa-check" style="color: green;"></i>';
+                } else {
+                  return '<i class="fa fa-times" style="color: red;"></i>';
+                }
+              },
+              orderable: false
+            },
+            // { data: 'no' },
+            {
+        data: 'tanggal_kirim',
         render: function (data, type, row) {
           if (type === 'display' || type === 'filter') {
             return data; // Tampilkan dalam format DD/MM/YYYY HH:mm:ss
           } else if (type === 'sort') {
-            return moment(data, 'DD/MM/YYYY HH:mm:ss').format('YYYYMMDDHHmmss'); // Ubah ke format lengkap YYYYMMDDHHmmss untuk pengurutan
+            return moment(data, 'DD/MM/YYYY').format('YYYYMMDD'); // Ubah ke format lengkap YYYYMMDDHHmmss untuk pengurutan
           }
           return data;
         }
       },
-              {
-                data: 'ID',
-                render: function (data, type, row) {
-                  return `<a href="detail_result_codcrm.html?id=${data}">${data}</a>`;
-                }
-              },
-              { data: 'nama_customer' },
-              { data: 'no_hp_customer' },
-              // { data: 'alamat', className: 'alamat' },
-              // { data: 'kecamatan' },
-              // { data: 'kabupaten_kota' },
-              // { data: 'provinsi' },
-              // { data: 'product' },
-              // { data: 'qty' },
-              // {
-              //   data: 'harga_product',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // { data: 'product2' },
-              // { data: 'qty2' },
-              // {
-              //   data: 'harga_product2',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // { data: 'product3' },
-              // { data: 'qty3' },
-              // {
-              //   data: 'harga_product3',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // { data: 'gift' },
-              // {
-              //   data: 'biaya_ongkir',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // {
-              //   data: 'biaya_penanganan',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // {
-              //   data: 'diskon_ongkir',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // {
-              //   data: 'total_cod',
-              //   render: function (data, type, row) {
-              //     return formatRupiah(data);
-              //   }
-              // },
-              // { data: 'metode_pembayaran' },
-              // { data: 'ekspedisi' },
-              { data: 'gudang' },
-              { data: 'nama_cs' },
-              // { data: 'nama_adv' },
-              { data: 'status_customer' },
-              { data: 'sumber_iklan' },
-              // { data: 'note' }
+            { data: 'no_resi' , className: 'alamat' },
+            { data: 'nama' },
+            { data: 'status' },
+            { data: 'alamat' },
+            { data: 'no_hp' },
+            { data: 'produk' },
+            { data: 'volume' },
+            // { data: 'harga_closing' },
+            // { data: 'value' },
+            // { data: 'ongkir' },
+            // { data: 'fix_total' },
+            // { data: 'biaya_penanganan_ninja_cod' },
+            // { data: 'biaya_penanganan_jne_jnt_cod' },
+            // { data: 'subsidi_ongkir_admin_mp' },
+            // { data: 'jumlah_transfer' },
+            // { data: 'rekening' },
+            // { data: 'ekspedisi' },
+            // { data: 'bruto' },
+            // { data: 'index' },
+            // { data: 'cs' },
+            // { data: 'adv' },
+            // { data: 'tanggal_transfer' },
+            // { data: 'gift' },
+            // { data: 'promo' }
+            
             ],
             "createdRow": function (row, data, dataIndex) {
               $(row).css('color', 'black');
@@ -460,7 +427,7 @@
                 }
               });
             },
-            "order": [[0, "desc"]],
+            "order": [[1, "desc"]],
             "language": {
               "lengthMenu": " _MENU_ " // Hanya menampilkan dropdown tanpa teks
             }
