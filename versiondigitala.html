@@ -82,16 +82,7 @@
 					</div>
 				  </li>
 	
-				  <!-- AKUISISI Dropdown -->
-				  <!-- <li class="nav-item dropdown-akuisisi">
-					<a class="nav-link dropdown-toggle-akuisisi" href="#" id="navbarDropdownAKUISISI" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
-					  AKUISISI
-					</a>
-					<div class="dropdown-menu dropdown-menu-akuisisi" aria-labelledby="navbarDropdownAKUISISI">
-						<a class="dropdown-item-akuisisi" href="codakuisisi.html">Form COD CSA</a>
-                        <a class="dropdown-item-akuisisi" href="tfakuisisi.html">Form TF CSA</a>
-					</div>
-				  </li> -->
+
 
 				<li class="nav-item dropdown-crm active">
                 <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
@@ -139,6 +130,7 @@
 								<h3><Strong>November 2024 [V.2.2]</Strong></h3>
 								<ul>
 									<li>Fix nama customer tidak dapat di awali dengan [SPACE] / teks kosong</li>
+									<li>Fix alamat lengkap customer tidak dapat di input dengan ['] atau [`]</li>
 									<li>Layouting input Prov, Kab/Kota & Kec menjadi satu baris dalam tampilan desktop</li>
 									
 								</ul>
@@ -220,63 +212,7 @@
 
 
 	<script src="js/digitala.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-  <script>
-function updateBiayaPenanganan() {
-  // Mengambil nilai harga produk dan biaya ongkir
-  let hargaProduct1 = parseInt(document.getElementById('harga_product').value.replace(/[^0-9]/g, '')) || 0;
-  let hargaProduct2 = parseInt(document.getElementById('harga_product2').value.replace(/[^0-9]/g, '')) || 0;
-  let hargaProduct3 = parseInt(document.getElementById('harga_product3').value.replace(/[^0-9]/g, '')) || 0;
-  let biayaOngkir = parseInt(document.getElementById('biaya_ongkir').value.replace(/[^0-9]/g, '')) || 0;
-  
-  // Mengambil nilai diskon ongkir
-  let diskonOngkir = parseInt(document.getElementById('diskon_ongkir').value.replace(/[^0-9]/g, '')) || 0;
 
-  // Total nilai harga produk dan ongkir setelah diskon ongkir
-  let totalProdukOngkir = hargaProduct1 + hargaProduct2 + hargaProduct3 + biayaOngkir;
-
-  // Mengambil nilai ekspedisi
-  let ekspedisi = document.getElementById('ekspedisi').value;
-
-  let biayaPenanganan = 0;
-
-  // Cek apakah biaya ongkir dan diskon ongkir lebih dari 0 sebelum mengurangi nilainya
-  if (biayaOngkir > 0 && diskonOngkir > 0 && (biayaOngkir - diskonOngkir) === 0) {
-      biayaPenanganan = 0;
-  } else {
-      // Jika tidak, jalankan logika perhitungan biaya penanganan seperti biasa
-      if (ekspedisi === "NINJA") {
-          if (totalProdukOngkir >= 200000) {
-              biayaPenanganan = totalProdukOngkir * 0.025; // 3% dari total jika >= Rp 200.000
-          } else {
-              biayaPenanganan = 5000; // Biaya tetap Rp 5.000 jika kurang dari Rp 200.000
-          }
-      } else if (ekspedisi === "JNT") {
-          biayaPenanganan = totalProdukOngkir * 0.01; // 1% untuk ekspedisi JNT
-      }
-  }
-
-  // Pastikan biaya penanganan dibulatkan dengan pembulatan 2 angka di belakang koma
-  biayaPenanganan = Math.round(biayaPenanganan);
-
-  // Menggunakan formatRupiah untuk memformat biayaPenanganan
-  const biayaPenangananInput = document.getElementById('biaya_penanganan');
-  biayaPenangananInput.value = biayaPenanganan.toString(); // Set nilai angka murni terlebih dahulu
-  formatRupiah(biayaPenangananInput); // Panggil fungsi formatRupiah untuk memformat dengan simbol Rp
-
-  // Update total COD juga
-  updateTotalCod();
-}
-
-// Event listener untuk memicu perhitungan biaya penanganan
-document.getElementById('harga_product').addEventListener('input', updateBiayaPenanganan);
-document.getElementById('harga_product2').addEventListener('input', updateBiayaPenanganan);
-document.getElementById('harga_product3').addEventListener('input', updateBiayaPenanganan);
-document.getElementById('biaya_ongkir').addEventListener('input', updateBiayaPenanganan);
-document.getElementById('diskon_ongkir').addEventListener('input', updateBiayaPenanganan);
-document.getElementById('ekspedisi').addEventListener('change', updateBiayaPenanganan);
-
-	</script>
 	
 	
 

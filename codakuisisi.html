@@ -384,7 +384,7 @@
   }
 
   // Pastikan biaya penanganan dibulatkan dengan pembulatan 2 angka di belakang koma
-  biayaPenanganan = Math.round(biayaPenanganan);
+  biayaPenanganan = Math.floor(biayaPenanganan);
 
   // Menggunakan formatRupiah untuk memformat biayaPenanganan
   const biayaPenangananInput = document.getElementById('biaya_penanganan');
