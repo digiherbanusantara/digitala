@@ -223,6 +223,9 @@
                   <th>ID</th>
                   <th>Nama Customer</th>
                   <th>No HP Customer</th>
+                  <th>Product¹</th>
+                  <th>Product²</th>
+                  <th>Product³</th>
                   <!-- <th class="alamat">Alamat</th>
                   <th>Kecamatan</th>
                   <th>Kabupaten/Kota</th>
@@ -404,6 +407,57 @@
               // { data: 'kecamatan' },
               // { data: 'kabupaten_kota' },
               // { data: 'provinsi' },
+              {
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product) parts.push(row.product);
+    if (row.qty) parts.push(row.qty);
+    if (row.harga_product) parts.push(formatRupiah(row.harga_product));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
+
+
+{
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product2) parts.push(row.product);
+    if (row.qty2) parts.push(row.qty);
+    if (row.harga_product2) parts.push(formatRupiah(row.harga_product2));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
+
+{
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product3) parts.push(row.product);
+    if (row.qty3) parts.push(row.qty);
+    if (row.harga_product3) parts.push(formatRupiah(row.harga_product3));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
               // { data: 'product' },
               // { data: 'qty' },
               // {
