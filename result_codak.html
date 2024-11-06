@@ -87,6 +87,18 @@
       white-space: normal;
     }
 
+    /* Menambahkan border untuk setiap sel dalam DataTable */
+#data-table td, #data-table th {
+  border: 1px solid #ddd; /* Anda bisa mengganti warna border sesuai kebutuhan */
+  padding: 8px; /* Menambahkan padding agar terlihat rapi */
+}
+
+/* Mengatur lebar header tabel */
+#data-table thead th {
+  border-bottom: 2px solid #ddd;
+}
+
+
   </style>
 </head>
 
@@ -215,16 +227,18 @@
                   <!-- <th class="alamat">Alamat</th>
                   <th>Kecamatan</th>
                   <th>Kabupaten/Kota</th>
-                  <th>Provinsi</th>
+                  <th>Provinsi</th> -->
                   <th>Product¹</th>
-                  <th>Qty¹</th>
-                  <th>Harga Product¹</th>
                   <th>Product²</th>
-                  <th>Qty²</th>
-                  <th>Harga Product²</th>
                   <th>Product³</th>
-                  <th>Qty³</th>
-                  <th>Harga Product³</th>
+                  <!-- <th>Qty¹</th> -->
+                  <!-- <th>Harga Product¹</th> -->
+                  <!-- <th>Product²</th> -->
+                  <!-- <th>Qty²</th> -->
+                  <!-- <th>Harga Product²</th> -->
+                  <!-- <th>Product³</th>
+                  <th>Qty³</th> -->
+                  <!-- <th>Harga Product³</th>
                   <th>Gift</th>
                   <th>Biaya Ongkir</th>
                   <th>Biaya Admin</th>
@@ -392,6 +406,23 @@
     // { data: 'kecamatan' },
     // { data: 'kabupaten_kota' },
     // { data: 'provinsi' },
+
+    {
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product) parts.push(row.product);
+    if (row.qty) parts.push(row.qty);
+    if (row.harga_product) parts.push(formatRupiah(row.harga_product));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
     // { data: 'product' },
     // { data: 'qty' },
     // {
@@ -400,16 +431,46 @@
     //     return formatRupiah(data);
     //   }
     // },
+    {
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product2) parts.push(row.product);
+    if (row.qty2) parts.push(row.qty);
+    if (row.harga_product2) parts.push(formatRupiah(row.harga_product2));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
     // { data: 'product2' },
-    // { data: 'qty2' },
     // {
     //   data: 'harga_product2',
     //   render: function (data, type, row) {
     //     return formatRupiah(data);
     //   }
     // },
+    {
+  data: null,
+  render: function (data, type, row) {
+    // Buat array untuk menyimpan bagian-bagian yang ada nilainya
+    let parts = [];
+    
+    // Tambahkan nilai ke array jika nilai tersebut ada
+    if (row.product3) parts.push(row.product);
+    if (row.qty3) parts.push(row.qty);
+    if (row.harga_product3) parts.push(formatRupiah(row.harga_product3));
+    
+    // Gabungkan array dengan pemisah " | "
+    return parts.join(' | ');
+  },
+  className: 'alamat'
+},
     // { data: 'product3' },
-    // { data: 'qty3' },
     // {
     //   data: 'harga_product3',
     //   render: function (data, type, row) {
