@@ -221,7 +221,7 @@
               <thead>
                 <tr>
                   <!-- <th>No</th> -->
-                  <th></th>
+                  <!-- <th></th> -->
                   <th>Tanggal Kirim</th>
                   <th>No Resi</th>
                   <th>Nama</th>
@@ -374,24 +374,14 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbypfrj4kJE_yO_34Ij4lnBkai1qTZ9XzKlq5p6patSZZOw1PQuGTn-PTxGmnDA26Pxe/exec?getDetailAllDataSby=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec?getDetailAllDataSby=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           $('#data-table').DataTable({
             data: data,
             columns: [
 
-            {
-              data: 'status',
-              render: function (data, type, row) {
-                if (data) {
-                  return '<i class="fa fa-check" style="color: green;"></i>';
-                } else {
-                  return '<i class="fa fa-times" style="color: red;"></i>';
-                }
-              },
-              orderable: false
-            },
+           
             // { data: 'no' },
             {
         data: 'tanggal_kirim',
@@ -404,7 +394,13 @@
           return data;
         }
       },
-            { data: 'no_resi' , className: 'alamat' },
+
+      {
+      data: 'no_resi',
+      render: function (data, type, row) {
+        return `<a href="detail_db_all_sby.html?id=${data}">${data}</a>`;
+      },className: 'alamat'
+    },
             { data: 'nama' },
             { data: 'status' },
             { data: 'alamat' },

@@ -412,7 +412,7 @@
   if (id) {
     document.getElementById('page-title').innerHTML = `<b>DETAIL ID: <span style="color: #f8842b;">${id}</span> </b>`;
     // Ambil detail data berdasarkan ID
-    fetch(`https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec?action=getDetailCodCrm&id=${id}`)
+    fetch(`https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec?action=getDetailCodCrm&id=${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

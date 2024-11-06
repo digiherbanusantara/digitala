@@ -195,7 +195,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec')
+fetch('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -389,7 +389,7 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbwoyJq87DOqYkxmebd0iaYh91dXKzGvXxBcxEaG_lv59OaFCGZsJw453GaqvKT3kRKu/exec')
+      fetch('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec')
         .then(response => response.json())
         .then(data => {
           const sortedProvinsi = [...new Set(data.alamat.map(item => item[0]))].sort();
