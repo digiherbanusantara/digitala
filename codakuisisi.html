@@ -163,9 +163,11 @@
 						<div class="col-md-6 mb-3">
 							<label for="no_hp_customer" class="form-label">HP Customer<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control" id="no_hp_customer" name="no_hp_customer" required placeholder="62xxx" oninput="formatPhoneNumber(this)"></div>
-						<div class="col-md-12 mb-3">
-							<label for="alamat" class="form-label">Alamat Customer</label>
-							<input type="textarea" class="form-control" id="alamat" name="alamat" placeholder="Alamat Customer" oninput="this.value = this.value.toUpperCase();"></div>
+							<div class="col-md-12 mb-3">
+								<label for="alamat" class="form-label">Alamat Customer</label>
+								<textarea class="form-control" id="alamat" name="alamat" placeholder="Alamat Customer" rows="3" oninput="toUpperCaseDelayed(this)"></textarea>
+							</div>
+							
 
 							<div class="col-md-4 mb-3">
 								<label for="provinsi" class="form-label" >Provinsi</label>
@@ -208,7 +210,7 @@
 						</div>
 						<div class="col-md-4 mb-3">
 							<label for="qty" class="form-label">Quantity<span class="wajib_diisi">*</span></label>
-							<input type="number" class="form-control red-border" id="qty" name="qty" required placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
+							<input type="number" class="form-control red-border" id="qty" name="qty" required placeholder="Qty"></div>
 						<div class="col-md-4 mb-3">
 							<label for="harga_product" class="form-label">Harga Product<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control red-border" id="harga_product" name="harga_product" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
@@ -224,7 +226,7 @@
 						</div>
 						<div class="col-md-4 mb-3 hide-2-product">
 							<label for="qty2" class="form-label">Quantity(2)<span class="wajib_diisi">*</span></label>
-							<input type="number" class="form-control red-border" id="qty2" name="qty2" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
+							<input type="number" class="form-control red-border" id="qty2" name="qty2" placeholder="Qty"></div>
 						<div class="col-md-4 mb-3 hide-2-product">
 							<label for="harga_product2" class="form-label">Harga Product(2)<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control red-border" id="harga_product2" name="harga_product2" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
@@ -240,7 +242,7 @@
 						</div>
 						<div class="col-md-4 mb-3 hide-3-product">
 							<label for="qty3" class="form-label">Quantity(3)<span class="wajib_diisi">*</span></label>
-							<input type="number" class="form-control red-border" id="qty3" name="qty3" placeholder="Qty" oninput="this.value = this.value.toUpperCase();"></div>
+							<input type="number" class="form-control red-border" id="qty3" name="qty3" placeholder="Qty" ></div>
 						<div class="col-md-4 mb-3 hide-3-product">
 							<label for="harga_product3" class="form-label">Harga Product(3)<span class="wajib_diisi">*</span></label>
 							<input type="text" class="form-control red-border" id="harga_product3" name="harga_product3" placeholder="Rp 0" oninput="formatRupiah(this); updateTotalCod()"></div>
@@ -326,7 +328,7 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="note" class="form-label">Note Untuk Courir</label>
-							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="this.value = this.value.toUpperCase();"></div>
+							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="toUpperCaseDelayed(this)"></div>
 					</div>
 					<div class="d-flex">
 						<!-- untuk mengarah ke sheet db_cod_crm -->
@@ -417,6 +419,10 @@ document.getElementById('harga_product2').addEventListener('input', updateBiayaP
 document.getElementById('harga_product3').addEventListener('input', updateBiayaPenanganan);
 document.getElementById('biaya_ongkir').addEventListener('input', updateBiayaPenanganan);
 document.getElementById('ekspedisi').addEventListener('change', updateBiayaPenanganan);
+
+
+
+
   </script>
 
 	</body>

@@ -479,15 +479,36 @@ function showWarning(input) {
 
   //tidak boleh ada spasi di awal nama customer
   function validateNamaCustomer(input) {
-    // Convert to uppercase
-    input.value = input.value.toUpperCase();
-  
-    // Validate: no leading space, space allowed only after second character
-    const pattern = /^[^\s][A-Z ]*$/;
-    if (!pattern.test(input.value)) {
-      input.value = input.value.trimStart(); // Remove leading spaces if any
-      if (input.value.length >= 2) {
-        input.value = input.value.replace(/(\w{2})(\s+)/, '$1 '); // Ensure spaces are allowed after 2 characters
-      }
-    }
-  }
+    // Menggunakan setTimeout agar tidak mengganggu saat pengguna mengetik
+    setTimeout(() => {
+        // Simpan posisi kursor saat ini
+        const cursorPosition = input.selectionStart;
+
+        // Ubah semua menjadi huruf besar
+        input.value = input.value.toUpperCase();
+
+        // Validasi: tidak boleh ada spasi di awal, spasi hanya diizinkan setelah karakter kedua
+        const pattern = /^[^\s][A-Z ]*$/;
+        if (!pattern.test(input.value)) {
+            input.value = input.value.trimStart(); // Hapus spasi di depan jika ada
+            if (input.value.length >= 2) {
+                input.value = input.value.replace(/(\w{2})(\s+)/, '$1 '); // Pastikan spasi diizinkan setelah 2 karakter
+            }
+        }
+
+        // Kembalikan posisi kursor ke posisi sebelumnya
+        input.setSelectionRange(cursorPosition, cursorPosition);
+    }, 0);
+}
+
+
+
+  //membuat text dapat di edit di tnegah tengah
+  function toUpperCaseDelayed(element) {
+    // Gunakan setTimeout untuk menunda pengubahan menjadi huruf besar agar tidak mengganggu pengeditan di tengah teks.
+    setTimeout(() => {
+        const cursorPosition = element.selectionStart; // Simpan posisi kursor
+        element.value = element.value.toUpperCase(); // Ubah teks menjadi huruf besar
+        element.setSelectionRange(cursorPosition, cursorPosition); // Kembalikan kursor ke posisi sebelumnya
+    }, 0);
+}
