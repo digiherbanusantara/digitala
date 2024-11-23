@@ -195,7 +195,7 @@ $('#successModal').on('hidden.bs.modal', function () {
 
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
-fetch('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec')
+fetch('https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec')
 .then(response => response.json())
 .then(data => {
   if (document.getElementById('product')) {
@@ -389,29 +389,29 @@ function showWarning(input) {
     //DEPENDENT DROPDOWN UTK PROVINCE KAB KECAMATAN
     document.addEventListener('DOMContentLoaded', function () {
       // Fetch data from Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec')
+      fetch('https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec')
         .then(response => response.json())
         .then(data => {
           const sortedProvinsi = [...new Set(data.alamat.map(item => item[0]))].sort();
           populateProvinsi(sortedProvinsi, data.alamat);
         });
-
+    
       function populateProvinsi(sortedProvinsi, alamat) {
         var provinsiDropdown = $('#provinsi');
-
+    
         sortedProvinsi.forEach(function (prov) {
           var option = new Option(prov, prov, false, false);
           provinsiDropdown.append(option);
         });
-
+    
         handleDependentDropdown(alamat);
-
+    
         // Initialize Select2 on Provinsi dropdown
         $('.searchable-dropdown').select2({
           placeholder: 'Pilih Provinsi',
           allowClear: true
         });
-
+    
         $('.searchable-dropdown-city').select2({
           placeholder: 'Pilih Kabupaten / Kota',
           allowClear: true
@@ -421,31 +421,31 @@ function showWarning(input) {
           allowClear: true
         });
       }
-
+    
       function handleDependentDropdown(alamat) {
         var kabupatenDropdown = $('#kabupaten_kota');
         var kecamatanDropdown = $('#kecamatan');
-
+    
         $('#provinsi').on('change', function () {
           var selectedProvinsi = $(this).val();
           kabupatenDropdown.html('<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>');
           kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
-
+    
           const filteredKabupaten = alamat.filter(item => item[0] === selectedProvinsi).map(item => item[1]);
           const sortedKabupaten = [...new Set(filteredKabupaten)].sort((a, b) => a.localeCompare(b));
-
+    
           populateKabupaten(sortedKabupaten);
         });
-
+    
         $('#kabupaten_kota').on('change', function () {
           var selectedKabupaten = $(this).val();
           kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
-
+    
           const filteredKecamatan = alamat.filter(item => item[1] === selectedKabupaten).map(item => item[2]);
           const sortedKecamatan = [...new Set(filteredKecamatan)].sort((a, b) => a.localeCompare(b));
           populateKecamatan(sortedKecamatan);
         });
-
+    
         function populateKabupaten(sortedKabupaten) {
           sortedKabupaten.forEach(function (kab) {
             var option = new Option(kab, kab, false, false);
@@ -453,7 +453,7 @@ function showWarning(input) {
           });
           kabupatenDropdown.trigger('change');
         }
-
+    
         function populateKecamatan(sortedKecamatan) {
           sortedKecamatan.forEach(function (kec) {
             var option = new Option(kec, kec, false, false);
@@ -462,7 +462,32 @@ function showWarning(input) {
           kecamatanDropdown.trigger('change');
         }
       }
+    
+      // Tambahkan event listener untuk mengatur ulang Select2 saat form di-submit
+      const form = document.querySelector('form');
+    
+      form.addEventListener('submit', function (event) {
+        // Prevent page reload on submit
+        event.preventDefault();
+    
+        // Reset Select2 values
+        $('#provinsi').val(null).trigger('change'); // Reset Provinsi dropdown
+        $('#kabupaten_kota').html('<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>').trigger('change'); // Reset Kabupaten/Kota dropdown
+        $('#kecamatan').html('<option value="" disabled selected hidden>Pilih Kecamatan</option>').trigger('change'); // Reset Kecamatan dropdown
+    
+        // Logika pengiriman data jika diperlukan (contoh: AJAX)
+        console.log('Form berhasil di-reset dan data dikirim.');
+      });
+    
+      // Jika menggunakan tombol reset (opsional)
+      form.addEventListener('reset', function () {
+        // Reset Select2 values
+        $('#provinsi').val(null).trigger('change'); // Reset Provinsi dropdown
+        $('#kabupaten_kota').html('<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>').trigger('change'); // Reset Kabupaten/Kota dropdown
+        $('#kecamatan').html('<option value="" disabled selected hidden>Pilih Kecamatan</option>').trigger('change'); // Reset Kecamatan dropdown
+      });
     });
+    
 
     	// Fungsi untuk menghapus karakter tanda petik tunggal dan petik belakang dari input
 	function validateAlamat(input) {

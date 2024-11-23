@@ -299,14 +299,14 @@
                 <a class="" href="index.html">
                   Home
                 </a>
-                <a class="" href="codcrm.html">
-                  Form COD CRM
-                </a>
-                <a class="" href="tfcrm.html">
-                  Form TF CRM
+                <a class="" href="getstarted.html">
+                  Get Started
                 </a>
                 <a class="" href="about.html">
-                  About
+                  Wireflow
+                </a>
+                <a class="" href="versiondigitala.html">
+                  Version
                 </a>
               </div>
             </div>
@@ -418,7 +418,7 @@
   if (id) {
     document.getElementById('page-title').innerHTML = `<b>DETAIL ID: <span style="color: #f8842b;">${id}</span> </b>`;
     // Ambil detail data berdasarkan ID
-    fetch(`https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec?action=getDetailCodCrm&id=${id}`)
+    fetch(`https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec?action=getDetailCodCrm&id=${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

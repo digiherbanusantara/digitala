@@ -26,13 +26,13 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
 <style>
-  body {
-      margin: 0;
-      /* font-family: Arial, sans-serif; */
-      background: linear-gradient(to right, #ffffff, #8ac1d5); /* Background with gradient */
-      
-    }
-</style>
+	body {
+		margin: 0;
+		/* font-family: Arial, sans-serif; */
+		background: linear-gradient(to right, #ffffff, #8ac1d5); /* Background with gradient */
+		
+	  }
+  </style>
 
   
 
@@ -156,7 +156,7 @@
 						</div>
 					</div>
 				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec">
+				<form method="POST" action="https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="nama_customer" class="form-label">Nama Customer<span class="wajib_diisi">*</span></label>
@@ -329,9 +329,17 @@
 								<option value="TITKOK ADS">TIKTOK ADS</option>
 								<!-- Add more options as needed --></select>
 						</div>
-						<div class="col-md-12 mb-3">
+						<div class="col-md-6 mb-3">
 							<label for="note" class="form-label">Note Untuk Courir</label>
 							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="toUpperCaseDelayed(this)"></div>
+
+							<div class="col-md-6">
+								<label for="bukti_chat" class="form-label">Upload Bukti Chat</label>
+								<input class="form-control" id="bukti_chat" name="bukti_chat" type="file" required>
+								<input type="hidden" id="bukti_chat_data" name="bukti_chat_data">
+								<input type="hidden" id="bukti_chat_name" name="bukti_chat_name">
+								<input type="hidden" id="bukti_chat_mimetype" name="bukti_chat_mimetype">
+							</div>
 					</div>
 					<div class="d-flex">
 						<!-- untuk mengarah ke sheet db_cod_crm -->
@@ -432,6 +440,29 @@ document.getElementById('diskon_ongkir').addEventListener('input', updateBiayaPe
 document.getElementById('ekspedisi').addEventListener('change', updateBiayaPenanganan);
 
 	</script>
+
+<script>
+	$('#bukti_chat').on("change", function() {
+    var file = this.files[0];
+
+    if (file.size > 1000000) { // Limit file size to 1MB
+        alert("File terlalu besar, disarankan kurang dari < 1MB.");
+        return;
+    }
+
+    const worker = new Worker("js/fileReaderWorker.js"); // Jalankan Web Worker
+    worker.postMessage(file); // Kirim file ke worker
+
+    worker.onmessage = function(e) {
+        const { fileData, fileName, fileType } = e.data;
+        document.getElementById("bukti_chat_data").value = fileData;
+        document.getElementById("bukti_chat_name").value = fileName;
+        document.getElementById("bukti_chat_mimetype").value = fileType;
+        worker.terminate(); // Hentikan worker setelah selesai
+    };
+});
+
+  </script>
 	
 	
 

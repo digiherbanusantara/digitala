@@ -293,14 +293,14 @@
                 <a class="" href="index.html">
                   Home
                 </a>
-                <a class="" href="codcrm.html">
-                  Form COD CRM
-                </a>
-                <a class="" href="tfcrm.html">
-                  Form TF CRM
+                <a class="" href="getstarted.html">
+                  Get Started
                 </a>
                 <a class="" href="about.html">
-                  About
+                  Wireflow
+                </a>
+                <a class="" href="versiondigitala.html">
+                  Version
                 </a>
               </div>
             </div>
@@ -380,7 +380,7 @@
   <script>
     $(document).ready(function () {
       // Ambil data dari Google Apps Script
-      $.getJSON('https://script.google.com/macros/s/AKfycbzU3axfVr_WYRPo279lLobuRqQl3OWfOkI5DN7rKtseEB7rP_e4K39TKIlMimx70UkW/exec?getDetailAllDataSby=true', function (data) {
+      $.getJSON('https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec?getDetailAllDataSby=true', function (data) {
         // Jika ada data, masukkan ke dalam DataTable
         if (data && data.length > 0) {
           $('#data-table').DataTable({
