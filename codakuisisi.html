@@ -165,7 +165,16 @@
 							<input type="text" class="form-control" id="no_hp_customer" name="no_hp_customer" required placeholder="62xxx" oninput="formatPhoneNumber(this)"></div>
 							<div class="col-md-12 mb-3">
 								<label for="alamat" class="form-label">Alamat Customer</label>
-								<textarea class="form-control" id="alamat" name="alamat" placeholder="Alamat Customer" rows="3" oninput="toUpperCaseDelayed(this)"></textarea>
+								<textarea
+								class="form-control"
+								id="alamat"
+								name="alamat"
+								placeholder="Alamat Customer"
+								rows="3"
+								oninput="removeLineBreaks(this); toUpperCaseDelayed(this);"
+								onkeypress="preventEnter(event)"
+							></textarea>
+
 							</div>
 							
 
@@ -455,6 +464,21 @@ document.getElementById('ekspedisi').addEventListener('change', updateBiayaPenan
 });
 
   </script>
+
+<script>
+	// Mencegah Enter saat mengetik
+function preventEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Mencegah aksi default Enter
+    }
+}
+
+// Menghapus karakter Enter (line break) dan mengganti dengan spasi
+function removeLineBreaks(element) {
+    element.value = element.value.replace(/[\r\n]+/g, ' '); // Ganti semua line break dengan spasi
+}
+
+</script>
 
 	</body>
 	</html>
