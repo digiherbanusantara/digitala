@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "prettier": "^3.0.0-alpha.6"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13"
   }
 }

@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>DIGITALA</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <!-- Select2 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <!-- DataTables CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css"
+    />
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    /> -->
+
+    <style>
+      .btn-savechanges {
+        background-color: #f8842b;
+      }
+
+      .btn-savechanges:hover {
+        background-color: #f8984f;
+        color: #fff;
+      }
+
+      /* Default styling untuk filter-container */
+      .filter-container {
+        display: flex;
+        justify-content: flex-end; /* Posisi elemen awalnya di kiri */
+        gap: 20px; /* Jarak antara elemen */
+        margin-bottom: 20px;
+      }
+
+      /* Responsif untuk perangkat mobile */
+      @media (max-width: 767px) {
+        .filter-container {
+          display: flex;
+          flex-direction: column; /* Ubah susunan menjadi vertikal */
+          justify-content: center; /* Posisi elemen di tengah secara horizontal */
+          align-items: center; /* Posisi elemen di tengah secara vertikal */
+          gap: 10px; /* Jarak antar elemen */
+        }
+
+        /* Optional: memperkecil ukuran label pada mobile */
+        .form-label {
+          font-size: 14px;
+        }
+      }
+
+      /* Tabel container tanpa scroll horizontal di desktop */
+      .table-container {
+        overflow-x: auto; /* Sembunyikan scroll horizontal di desktop */
+        margin-bottom: 15px; /* Menambah sedikit margin bawah agar terlihat rapi */
+      }
+
+      /* Tabel itu sendiri agar memenuhi lebar container */
+      #data-table {
+        width: 100%;
+        border-collapse: collapse; /* Menjaga border tabel tetap rapi */
+      }
+
+      /* Border pada tabel dan header */
+      #data-table,
+      #data-table th,
+      #data-table td {
+        border: 1px solid #ddd; /* Border untuk tabel dan cell */
+      }
+
+      /* Mengatur border header tabel */
+      #data-table th {
+        background-color: #f4f4f4; /* Memberikan latar belakang yang sedikit berbeda pada header */
+        position: sticky;
+        top: 0; /* Membuat header tetap di atas saat scroll */
+        z-index: 1; /* Memastikan header berada di atas konten */
+        /* border-bottom: 2px solid #ddd; Menambahkan border bawah pada header */
+      }
+
+      /* Membuat kolom agar tetap sejajar */
+      #data-table th,
+      #data-table td {
+        text-align: left;
+        padding: 10px;
+      }
+
+      /* Menyembunyikan scroll horizontal di desktop */
+      @media (min-width: 768px) {
+        .table-container {
+          overflow-x: show; /* Sembunyikan scroll horizontal di desktop */
+        }
+      }
+
+      /* Menampilkan scroll horizontal hanya pada perangkat mobile */
+      @media (max-width: 767px) {
+        .table-container {
+          overflow-x: auto; /* Aktifkan scroll horizontal pada perangkat mobile */
+          -webkit-overflow-scrolling: touch; /* Memastikan smooth scroll pada perangkat mobile */
+        }
+      }
+
+      /* Tabel itu sendiri agar memenuhi lebar container */
+      #data-table {
+        width: 100%;
+        border-collapse: collapse; /* Menjaga border tabel tetap rapi */
+      }
+
+      /* Border pada tabel dan header */
+      #data-table,
+      #data-table th,
+      #data-table td {
+        border: 1px solid #ddd; /* Border untuk tabel dan cell */
+      }
+
+      /* Mengatur border header tabel */
+      #data-table th {
+        background-color: #f4f4f4; /* Memberikan latar belakang yang sedikit berbeda pada header */
+        position: sticky;
+        top: 0; /* Membuat header tetap di atas saat scroll */
+        z-index: 1; /* Memastikan header berada di atas konten */
+        border-bottom: 2px solid #ddd; /* Menambahkan border bawah pada header */
+      }
+
+      /* Membuat kolom agar tetap sejajar */
+      #data-table th,
+      #data-table td {
+        text-align: left;
+        padding: 10px;
+      }
+
+      /* Memastikan lebar kolom header dan body sama */
+      #data-table th,
+      #data-table td {
+        width: auto;
+      }
+
+      /* Responsif: Mengurangi ukuran tabel pada layar kecil */
+      @media (max-width: 768px) {
+        #data-table {
+          font-size: 14px; /* Menyesuaikan ukuran font di layar kecil */
+        }
+      }
+      body {
+        margin: 0;
+        /* font-family: Arial, sans-serif; */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #8ac1d5
+        ); /* Background with gradient */
+      }
+
+      /* Styling agar DataTable dapat di-scroll secara horizontal */
+      .datatable-wrapper {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      /* Styling border untuk setiap baris DataTable */
+      #data-table tbody tr {
+        border-bottom: 1px solid #ddd;
+      }
+
+      /* Efek hover pada DataTable, kecuali kolom Action */
+      #data-table tbody tr:hover td:not(:last-child) {
+        background-color: #f8842b;
+        color: white !important;
+      }
+
+      /* Menjaga kolom Action agar tidak terpengaruh oleh hover */
+      #data-table tbody tr:hover td:last-child {
+        background-color: transparent !important;
+        color: inherit !important;
+      }
+
+      /* Memastikan warna teks di-reset ketika tidak di-hover */
+      #data-table tbody tr {
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Styling untuk spinner loading */
+      #loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 9999;
+      }
+
+      .spinner-border {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      /* Membatasi panjang teks pada DataTable */
+      #data-table td {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Menambah panjang kolom Alamat */
+      #data-table td.alamat {
+        max-width: 600px;
+      }
+
+      /* Tooltip untuk teks panjang */
+      .tooltip-inner {
+        max-width: 350px;
+        white-space: normal;
+      }
+
+      /* Menambahkan border untuk setiap sel dalam DataTable */
+      #data-table td,
+      #data-table th {
+        border: 1px solid #ddd; /* Anda bisa mengganti warna border sesuai kebutuhan */
+        padding: 8px; /* Menambahkan padding agar terlihat rapi */
+      }
+
+      /* Mengatur lebar header tabel */
+      #data-table thead th {
+        border-bottom: 2px solid #ddd;
+      }
+
+      /* Menetapkan posisi tetap untuk kolom pencarian dan tombol Show Column */
+      .dataTables_filter,
+      .dataTables_length {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10; /* Agar tetap di atas tabel */
+        padding: 10px;
+      }
+
+      /* Jika Anda menggunakan dropdown untuk Show Column, pastikan tetap berada di atas tabel */
+      .dataTables_columnToggler {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: white; /* Agar tidak transparan saat di-scroll */
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      /* Styling untuk kotak pencarian (search) */
+      .dataTables_filter input {
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        border-radius: 5px;
+        width: 200px; /* Sesuaikan lebar input search */
+        height: auto;
+        margin-right: 10px;
+      }
+
+      /* Styling untuk dropdown show pages (length menu) */
+      .dataTables_length select {
+        border: 1px solid #ddd;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      /* Styling untuk pagination (halaman) */
+      .dataTables_paginate {
+        padding: 10px;
+        text-align: right;
+      }
+
+      .dataTables_paginate a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .dataTables_paginate a:hover {
+        background-color: #f8842b;
+        color: white;
+      }
+
+      /* Menyamakan tinggi elemen */
+
+      /* Flexbox untuk perataan */
+      .d-flex {
+        display: flex;
+        align-items: center; /* Vertikal sejajar */
+        justify-content: flex-end; /* Elemen rata kanan */
+        gap: 15px; /* Spasi antara elemen */
+      }
+
+      /* Styling tambahan */
+      #filter-host,
+      #search-input {
+        margin: 0;
+        padding: 5px 10px; /* Ruang internal */
+        border: 1px solid #ccc; /* Border konsisten */
+        border-radius: 5px; /* Rounded corner */
+        box-sizing: border-box;
+      }
+
+      .dataTables_wrapper .dataTables_paginate .paginate_button {
+        font-size: 15px; /* Ukuran font lebih kecil */
+        padding: 4px 8px; /* Padding yang lebih kecil */
+      }
+
+      /* Mengubah ukuran teks untuk elemen informasi (misalnya "Show 429 entries") */
+      .dataTables_wrapper .dataTables_info {
+        font-size: 15px; /* Ukuran font lebih kecil */
+      }
+
+      .form-control {
+        background-color: white !important; /* Pastikan latar belakang tetap putih */
+        border-color: #ced4da; /* Border default yang ringan */
+        color: #495057; /* Warna teks default */
+      }
+
+      .edit-btn {
+        padding: 5px 8px !important; /* Mengatur padding tombol agar lebih kecil */
+
+        font-size: 16px;
+        cursor: pointer;
+        border: none !important;
+        background: transparent !important;
+      }
+
+      .edit-btn i {
+        color: black;
+      }
+
+      .edit-btn:hover i {
+        color: #f8842b;
+      }
+    </style>
+  </head>
+
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index_talent.html"
+              ><span>DIGITALA</span></a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="index_talent.html"
+                    style="margin-right: 10px"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+
+                <li class="nav-item dropdown-crm active" data-menu="talentlive">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    TALENT LIVE
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="talent_daily.html"
+                      >DAILY REPORT</a
+                    >
+                    <a class="dropdown-item-crm" href="talent_offduty.html"
+                      >OFF DUTY</a
+                    >
+                    <a class="dropdown-item-crm" href="talent_penalty.html"
+                      >STREAMING PENALTY</a
+                    >
+                    <a class="dropdown-item-crm" href="talent_content.html"
+                      >CONTENT</a
+                    >
+                  </div>
+                </li>
+
+                <li class="nav-item dropdown-crm">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    About
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="talent_about.html"
+                      >Wireflow</a
+                    >
+                    <a class="dropdown-item-crm" href="versiondigitala.html"
+                      >Version Digitala</a
+                    >
+                  </div>
+                </li>
+              </ul>
+              <div class="quote_btn-container">
+                <a href="#" class="quote_btn" onclick="logout()">Logout</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+            <div class="breadcrumb">
+              <li><a href="index_talent.html">Home</a></li>
+              <li><a href="getstarted.html">Get Started</a></li>
+              <li class="active" style="color: #f8842b">Daily Talent Live</li>
+            </div>
+
+            <div class="form_container mb-4">
+              <div class="heading_container talent">
+                <h2>
+                  REPORT CONTENT
+                  <span style="color: #ffab6a">TALENT LIVE</span>
+                </h2>
+              </div>
+            </div>
+            <div class="form_container">
+              <!-- <div class="heading_container2 mb-5"></div> -->
+              <form
+                method="POST"
+                action="https://script.google.com/macros/s/AKfycbwDXIuwleI8tr9RphkY4SSQthuCbsJsNO9IxrCpWlVHXLee2zvx2pNWPBLp7d4lHKhZ/exec"
+              >
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="host2" class="form-label"
+                      >Host<span class="wajib_diisi">*</span></label
+                    >
+                    <select
+                      class="form-control form-label red-border"
+                      id="host2"
+                      name="host2"
+                      required
+                      style="height: 50px"
+                      required
+                    >
+                      <option value="" disabled selected hidden></option>
+                      <!-- Add more options as needed -->
+                    </select>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="date" class="form-label"
+                      >Date<span class="wajib_diisi">*</span></label
+                    >
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="date"
+                      name="date"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="theme" class="form-label"
+                      >Theme<span class="wajib_diisi">*</span></label
+                    >
+                    <input
+                    type="text"
+                      class="form-control red-border"
+                      id="theme"
+                      name="theme"
+                      required
+                      placeholder=""
+                      oninput="this.value = this.value.toUpperCase();"
+                    ></input>
+                  </div>
+
+                  <div class="col-md-2 mb-3">
+                    <label for="upload_time" class="form-label">
+                      Upload Time
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="upload_time"
+                      name="upload_time"
+                      placeholder="--:--"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="link" class="form-label"
+                      >Link<span class="wajib_diisi">*</span></label
+                    >
+                    <input
+                    type="text"
+                      class="form-control red-border"
+                      id="link"
+                      name="link"
+                      required
+                      placeholder=""
+                    ></input>
+                  </div>
+                  
+                  <div class="col-md-5 mb-3">
+                    <label for="information" class="form-label"
+                      >Information<span class="wajib_diisi">*</span></label
+                    >
+                    <select
+                      class="form-control form-label red-border"
+                      id="information"
+                      name="information"
+                      required
+                      style="height: 50px"
+                      required
+                    >
+                      <option value="" disabled selected hidden></option>
+                      <option value="TEPAT WAKTU">TEPAT WAKTU</option>
+                      <option value="TELAT UPLOAD(JAM)">TELAT UPLOAD (JAM)</option>
+                      <option value="TELAT UPLOAD(BEDA HARI)">TELAT UPLOAD(BEDA HARI)</option>
+                      <!-- Add more options as needed -->
+                    </select>
+                  </div>
+
+                  <div class="col-md-5 mb-3">
+                    <label for="reason_delay_content" class="form-label"
+                      >Reason Delay Content</label
+                    >
+                    <select
+                      class="form-control form-label red-border"
+                      id="reason_delay_content"
+                      name="reason_delay_content"
+                      style="height: 50px"
+                    >
+                      <option value="" disabled selected hidden></option>
+                      <option value="-">-</option>
+                      <option value="SAKIT">SAKIT</option>
+                      <option value="KELALAIAN PRIBADI">KELALAIAN PRIBADI</option>
+                      <option value="MALAS BIKIN CONTENT">MALAS BIKIN CONTENT</option>
+                      <!-- Add more options as needed -->
+                    </select>
+                  </div>
+
+                  
+
+
+                  <div class="col-md-2 mb-3">
+                    <label for="total_content" class="form-label"
+                      >Total Content<span class="wajib_diisi">*</span></label
+                    >
+                    <input
+                      type="number"
+                      class="form-control red-border"
+                      id="total_content"
+                      name="total_content"
+                      required
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <!-- untuk mengarah ke sheet db_offduty_talent -->
+                  <input type="hidden" name="formType" value="content_talent" />
+
+                  <button type="submit">SUBMIT</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="form_container mb-4 mt-4">
+              <div class="datatable-wrapper">
+                <div class="filter-container">
+                  <!-- Custom  Search -->
+                  <div>
+                    <label for="search-input" class="form-label">Search:</label>
+                    <input
+                      type="text"
+                      id="search-input"
+                      class="form-control"
+                      placeholder="Type Here..."
+                      style="width: 300px; height: 40px"
+                    />
+                  </div>
+                </div>
+
+                <div id="loading-spinner">
+                  <div class="spinner-border text-warning" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+                <div class="table-container">
+                  <table id="data-table" class="display">
+                    <thead>
+                      <tr>
+                        <!-- <th>ID</th> -->
+                        <th>Timestamp</th>
+                        <th>Host2</th>
+                        <th>Date</th>
+                        <th>Theme</th>
+                        <th>Upload Time</th>
+                        <th>Link</th>
+                        <th>Information</th>
+                        <th>Reason Delay Content</th>
+                        <th>Total Content</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- DataTable akan mengisi bagian ini -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end contact section -->
+    <div class="footer_container">
+      <!-- info section -->
+
+      <!-- end info section -->
+
+      <!-- footer section -->
+      <footer class="footer_section">
+        <div class="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="#">Data Analyst | PT Digi Herba Nusantara</a>
+          </p>
+        </div>
+      </footer>
+      <!-- footer section -->
+    </div>
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script src="js/digitala.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"
+    ></script>
+    <!-- Tambahkan ini di bagian head untuk menyertakan moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+    <script>
+      // Script untuk start_live
+      document.addEventListener("DOMContentLoaded", function () {
+        // Setel elemen input dengan placeholder --:--
+        var uploadTimeInput = document.querySelector("#upload_time");
+        uploadTimeInput.placeholder = "--:--";
+
+        // Inisialisasi Flatpickr untuk start_live
+        flatpickr("#upload_time", {
+          enableTime: true, // Aktifkan pemilihan waktu
+          noCalendar: true, // Hilangkan kalender
+          dateFormat: "H:i", // Format waktu 24 jam tanpa detik
+          time_24hr: true, // Gunakan format 24 jam
+          defaultHour: 0, // Setel jam default menjadi 00
+          defaultMinute: 0, // Setel menit default menjadi 00
+          onOpen: function (selectedDates, dateStr, instance) {
+            // Ketika flatpickr dibuka, setel nilai menjadi 00:00
+            uploadTimeInput.value = "00:00";
+          },
+        });
+      });
+
+      // Script untuk start_live
+      document.addEventListener("DOMContentLoaded", function () {
+        // Setel elemen input dengan placeholder --:--
+        var endLiveInput = document.querySelector("#end_live");
+        endLiveInput.placeholder = "--:--";
+
+        // Inisialisasi Flatpickr untuk start_live
+        flatpickr("#end_live", {
+          enableTime: true, // Aktifkan pemilihan waktu
+          noCalendar: true, // Hilangkan kalender
+          dateFormat: "H:i", // Format waktu 24 jam tanpa detik
+          time_24hr: true, // Gunakan format 24 jam
+          defaultHour: 0, // Setel jam default menjadi 00
+          defaultMinute: 0, // Setel menit default menjadi 00
+          onOpen: function (selectedDates, dateStr, instance) {
+            // Ketika flatpickr dibuka, setel nilai menjadi 00:00
+            endLiveInput.value = "00:00";
+          },
+        });
+      });
+    </script>
+
+    <script>
+      // Populate dropdowns (asynchronous request)
+      fetch(
+        "https://script.google.com/macros/s/AKfycbwDXIuwleI8tr9RphkY4SSQthuCbsJsNO9IxrCpWlVHXLee2zvx2pNWPBLp7d4lHKhZ/exec"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (document.getElementById("host2")) {
+            populateDropdown("host2", data.host2);
+          }
+          
+        })
+        .catch((error) => console.error("Error:", error));
+
+      // Fungsi untuk populate dropdown
+      function populateDropdown(elementId, items) {
+        const selectElement = document.getElementById(elementId);
+        if (!selectElement) return; // Tidak lanjutkan jika elemen tidak ditemukan
+
+        // Sort the items in ascending order
+        items.sort(function (a, b) {
+          return a.localeCompare(b); // Menggunakan localeCompare untuk string sorting
+        });
+
+        // Tambahkan setiap item yang sudah diurutkan sebagai option
+        items.forEach(function (item) {
+          if (item.trim() !== "") {
+            const option = document.createElement("option");
+            option.value = item;
+            option.textContent = item;
+            selectElement.appendChild(option);
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Mencegah Enter saat mengetik
+      function preventEnter(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Mencegah aksi default Enter
+        }
+      }
+
+      // Menghapus karakter Enter (line break) dan mengganti dengan spasi
+      function removeLineBreaks(element) {
+        element.value = element.value.replace(/[\r\n]+/g, " "); // Ganti semua line break dengan spasi
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+        const submitButton = document.querySelector('button[type="submit"]');
+        let isSubmitting = false; // Variabel untuk melacak status submit
+
+        // Event listener untuk submit form
+        form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Menghentikan form dari submit biasa
+
+          if (isSubmitting) return; // Jika sudah dalam proses submit, hentikan
+
+          isSubmitting = true; // Tandai bahwa submit sedang berlangsung
+          submitButton.disabled = true; // Menonaktifkan tombol submit
+          submitButton.textContent = "Sending..."; // Mengubah teks tombol untuk memberi tahu pengguna bahwa proses sedang berlangsung
+
+          // Lakukan submit data
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.result === "success") {
+                // Tampilkan modal sukses
+                showSuccessModal(data.id);
+              } else {
+                alert("Error: " + data.error);
+                resetSubmitButton();
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Submission failed!");
+              resetSubmitButton();
+            });
+        });
+
+        // Fungsi untuk menampilkan modal sukses
+        function showSuccessModal(id) {
+          const modalHTML = `
+      <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Submit Success</h5>
+              <span aria-hidden="true" data-dismiss="modal" style="cursor: pointer;">&times;</span>
+            </div>
+            <div class="modal-body">
+              <p>Data has been successfully submitted!</p>
+              <p>ID: <strong id="popup-id">${id}</strong></p>
+            </div>
+            <div class="modal-footer">
+              <button id="copy-id-button" class="btn btn-success">Copy ID</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+          document.body.insertAdjacentHTML("beforeend", modalHTML);
+
+          // Menampilkan modal
+          $("#successModal").modal("show");
+
+          // Setelah modal sukses ditutup, refresh halaman (refresh halaman ketiak sudah selesai submit dan klik close modal)
+          $("#successModal").on("hidden.bs.modal", function () {
+            location.reload(); // Refresh halaman untuk memperbarui data
+          });
+
+          // Event listener untuk copy ID
+          document.getElementById("copy-id-button").onclick = function () {
+            const idElement = document.getElementById("popup-id");
+            const range = document.createRange();
+            range.selectNode(idElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            try {
+              document.execCommand("copy");
+              alert("ID berhasil disalin ke clipboard!");
+            } catch (err) {
+              alert("Gagal menyalin ID");
+            }
+            window.getSelection().removeAllRanges();
+          };
+
+          // Event listener untuk close modal dengan ikon "X" dan tombol "Close"
+          $("#successModal").on("hidden.bs.modal", function () {
+            submitButton.disabled = false; // Mengaktifkan kembali tombol submit
+            submitButton.textContent = "Submit"; // Mengubah teks tombol kembali ke 'Submit'
+            isSubmitting = false; // Reset status submit setelah modal ditutup
+
+            $("#successModal").remove(); // Menghapus modal dari DOM setelah ditutup
+          });
+
+          form.reset(); // Reset form jika perlu
+        }
+
+        // Fungsi untuk mengaktifkan kembali tombol submit dan mereset teksnya
+        function resetSubmitButton() {
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit";
+          isSubmitting = false; // Reset status submit
+        }
+
+        // Fungsi untuk toggle visibility
+        function toggleVisibility(selector, hide) {
+          document.querySelectorAll(selector).forEach(function (element) {
+            element.style.display = hide ? "none" : "block";
+          });
+        }
+
+        // Fungsi untuk populate dropdown
+        function populateDropdown(elementId, items) {
+          const selectElement = document.getElementById(elementId);
+          if (!selectElement) return; // Tidak lanjutkan jika elemen tidak ditemukan
+
+          items.forEach(function (item) {
+            if (item.trim() !== "") {
+              const option = document.createElement("option");
+              option.value = item;
+              option.textContent = item;
+              selectElement.appendChild(option);
+            }
+          });
+        }
+      });
+
+      // Mencegah Enter saat mengetik
+      function preventEnter(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Mencegah aksi default Enter
+        }
+      }
+
+      // Menghapus karakter Enter (line break) dan mengganti dengan spasi
+      function removeLineBreaks(element) {
+        element.value = element.value.replace(/[\r\n]+/g, " "); // Ganti semua line break dengan spasi
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        const scriptUrl =
+          "https://script.google.com/macros/s/AKfycbzEZ8-HYxWYaxPfzo1VTn4iVZjQj0wFodwzpWJusGt515pFVQNMWXbpJE245IgyM73E/exec";
+
+        $.getJSON(`${scriptUrl}?getContentTalentData=true`, function (data) {
+          if (data && Array.isArray(data) && data.length > 0) {
+            const dataTable = $("#data-table").DataTable({
+              data: data,
+              columns: [
+                { data: "timestamp", title: "timestamp" },
+                { data: "host2", title: "Host2" },
+                { data: "date", title: "Date" },
+                // { data: "Id", title: "ID" },
+                
+                { data: "theme", title: "Theme" },
+                { data: "upload_time", title: "Upload Time" },
+                { data: "link", title: "Link" },
+                { data: "information", title: "Information" },
+                { data: "reason_delay_content", title: "Reason Delay Content" },
+                { data: "total_content", title: "Total Content" },
+                {
+                  data: null,
+                  title: "Action",
+                  render: function (data, type, row) {
+                    return '<button class="edit-btn"><i class="fas fa-edit"></i></button>';
+                  },
+                },
+              ],
+              createdRow: function (row, data) {
+                $(row).css("color", "black");
+              },
+              order: [[0, "desc"]],
+              pagingType: "simple",
+              dom: '<"d-flex justify-content-between"<"custom-tools">>t<"d-flex justify-content-between"ip>',
+              language: {
+                info: "Total: _TOTAL_ entries",
+                infoEmpty: "Show 0 entries",
+                infoFiltered: "",
+              },
+            });
+
+            // Fungsi pencarian kustom
+            $("#search-input").on("keyup", function () {
+              const query = $(this).val();
+              dataTable.search(query).draw();
+            });
+
+            // Fungsi untuk mengedit data
+            $("#data-table").on("click", ".edit-btn", function () {
+              const row = dataTable.row($(this).closest("tr"));
+              const rowData = row.data();
+
+              // Tampilkan modal untuk memilih kolom yang akan diubah
+              $("#edit-modal").modal("show");
+
+              // Ketika kolom dipilih
+              $("#column-select").on("change", function () {
+                const columnName = $(this).val();
+                const oldValue = rowData[columnName];
+
+                // Set input value sesuai dengan kolom yang dipilih
+                $("#edit-value").val(oldValue);
+
+                // Ketika tombol simpan di modal ditekan
+                $("#save-edit")
+                  .off("click")
+                  .on("click", function () {
+                    let newValue = $("#edit-value").val();
+
+                    if (newValue !== oldValue) {
+                      // Validasi format waktu untuk kolom tertentu
+
+                      // Kirim request POST untuk memperbarui data di Google Spreadsheet
+                      $.ajax({
+                        url: `${scriptUrl}`,
+                        method: "POST",
+                        data: {
+                          action: "updateContentTalentData",
+                          formType: "content_talent",
+                          id: rowData.Id, // Kirim ID untuk mencari baris yang benar
+                          columnName: columnName, // Kolom yang akan diubah
+                          newValue: newValue, // Nilai baru
+                        },
+                        success: function (response) {
+                          if (response.result === "success") {
+                            // Perbarui data pada baris DataTable
+                            rowData[columnName] = newValue; // Update nilai yang dipilih
+                            row.data(rowData); // Set data baru ke row
+                            dataTable.draw(); // Refresh DataTable untuk menampilkan data terbaru
+                            $("#edit-modal").modal("hide"); // Menutup modal setelah berhasil
+                          } else {
+                            alert("Gagal memperbarui data");
+                          }
+                        },
+                        error: function () {
+                          alert("Failed to update data");
+                        },
+                      });
+                    }
+                  });
+              });
+            });
+          } else {
+            alert("Tidak ada data yang ditemukan.");
+          }
+        })
+          .fail(function () {
+            alert("Gagal mengambil data dari server.");
+          })
+          .always(function () {
+            $("#loading-spinner").hide(); // Menyembunyikan spinner loading setelah request selesai
+          });
+      });
+    </script>
+
+    <!-- Modal Edit -->
+    <div
+      class="modal fade"
+      id="edit-modal"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="column-select" class="form-label"
+                >Select Column</label
+              >
+              <select
+                class="form-control form-label"
+                style="height: 50px"
+                id="column-select"
+              >
+              <option value="" disabled selected hidden>Choose</option>
+                <option value="host2">host2</option>
+                <option value="date">date</option>
+                <option value="theme">theme</option>
+                <option value="upload_time">upload_time</option>
+                <option value="link">link</option>
+                <option value="information">information</option>
+                <option value="reason_delay_content">reason_delay_content</option>
+                <option value="total_content">total_content</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="edit-value" class="form-label">New Value</label>
+              <input
+                type="text"
+                class="form-control"
+                style="height: 50px"
+                id="edit-value"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-savechanges" id="save-edit">
+              Save Changes
+            </button>
+            <button type="button" class="btn btn-secondary" id="close-modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Menutup modal setelah tombol "Save Changes" ditekan
+      document
+        .getElementById("save-edit")
+        .addEventListener("click", function () {
+          $("#edit-modal").modal("hide"); // Menutup modal
+        });
+
+      // Menutup modal setelah tombol "Close" ditekan
+      document
+        .getElementById("close-modal")
+        .addEventListener("click", function () {
+          $("#edit-modal").modal("hide"); // Menutup modal
+        });
+          // Reset nilai modal saat modal ditutup
+      $("#edit-modal").on("hidden.bs.modal", function () {
+        // Reset nilai select
+        document.getElementById("column-select").value = "";
+        // Reset nilai input
+        document.getElementById("edit-value").value = "";
+      });
+
+    </script>
+  </body>
+</html>

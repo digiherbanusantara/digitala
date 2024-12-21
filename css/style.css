@@ -40,11 +40,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
 }
 
 .heading_container h2 {
@@ -58,8 +58,8 @@ body {
 
 .heading_container.heading_center {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -78,7 +78,7 @@ a:focus {
 .btn:focus {
   outline: none !important;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*header section*/
@@ -90,9 +90,13 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-          background: linear-gradient(to right, #5493aa, #19607a); /* Background with gradient */
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: linear-gradient(
+    to right,
+    #5493aa,
+    #19607a
+  ); /* Background with gradient */
   border-radius: 0 0 350px 0;
 }
 
@@ -134,7 +138,8 @@ a:focus {
   transition: all 0.3s;
 }
 
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
   color: #000000;
   background-color: #ffffff;
 }
@@ -164,7 +169,8 @@ a:focus {
   transition: all 0.3s;
 }
 
-.custom_nav-container .navbar-toggler span::before, .custom_nav-container .navbar-toggler span::after {
+.custom_nav-container .navbar-toggler span::before,
+.custom_nav-container .navbar-toggler span::after {
   content: "";
   position: absolute;
   left: 0;
@@ -183,23 +189,24 @@ a:focus {
 
 .custom_nav-container .navbar-toggler[aria-expanded="true"] {
   -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .custom_nav-container .navbar-toggler[aria-expanded="true"] span {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before, .custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::before,
+.custom_nav-container .navbar-toggler[aria-expanded="true"] span::after {
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
   top: 0;
 }
 
 .custom_nav-container .navbar-toggler[aria-expanded="true"] .s-1 {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   margin: 0;
   margin-bottom: -4px;
 }
@@ -210,7 +217,7 @@ a:focus {
 
 .custom_nav-container .navbar-toggler[aria-expanded="true"] .s-3 {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   margin: 0;
   margin-top: -4px;
 }
@@ -219,7 +226,7 @@ a:focus {
 .custom_nav-container .navbar-toggler[aria-expanded="false"] .s-2,
 .custom_nav-container .navbar-toggler[aria-expanded="false"] .s-3 {
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 .quote_btn-container {
@@ -227,8 +234,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .quote_btn-container a {
@@ -258,28 +265,28 @@ a:focus {
 .quote_btn-container .quote_btn:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 /*end header section*/
 /* slider section */
 .slider_section {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 45px 0;
 }
 
 .slider_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .slider_section #customCarousel1 {
@@ -302,8 +309,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0 -5px;
   margin-top: 45px;
 }
@@ -328,7 +335,7 @@ a:focus {
 .slider_section .detail-box .btn-box .btn1:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .slider_section .img-box img {
@@ -339,11 +346,11 @@ a:focus {
   position: unset;
   margin: 0;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 45px;
 }
 
@@ -367,8 +374,8 @@ a:focus {
 
 .service_section .heading_container {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .service_section .box {
@@ -376,7 +383,7 @@ a:focus {
   padding: 15px;
   border-radius: 10px;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
   position: relative;
   overflow: hidden;
   -webkit-transition: all 0.3s;
@@ -402,11 +409,11 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 125px;
   border-radius: 15px;
   -webkit-transition: all 0.3s;
@@ -438,13 +445,13 @@ a:focus {
 
 .service_section .box:hover::before {
   -webkit-transform: scale(5);
-          transform: scale(5);
+  transform: scale(5);
   background-color: #7335b7;
 }
 
 .service_section .box:hover img {
   -webkit-filter: invert(1);
-          filter: invert(1);
+  filter: invert(1);
 }
 
 .service_section .btn-box {
@@ -452,8 +459,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 45px;
 }
 
@@ -471,7 +478,7 @@ a:focus {
 .service_section .btn-box a:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .about_section {
@@ -482,8 +489,8 @@ a:focus {
 
 .about_section .row {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .about_section .img-box {
@@ -513,26 +520,26 @@ a:focus {
 .about_section .detail-box a:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .case_section .heading_container {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .case_section .heading_container h2::before {
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .case_section .box {
   margin-top: 45px;
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
@@ -566,11 +573,11 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin: 45px 0;
   text-align: center;
 }
@@ -622,11 +629,11 @@ a:focus {
   position: unset;
   margin: 0;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .client_section .carousel-indicators li {
@@ -653,35 +660,39 @@ a:focus {
 
 @media (max-width: 768px) {
   .form_container .row {
-      display: block; /* atau 'flex' dengan 'flex-direction: column;' */
+    display: block; /* atau 'flex' dengan 'flex-direction: column;' */
   }
-  
+
   .heading_container h2 {
-      display: inline-block;
-      white-space: nowrap;
+    display: inline-block;
+    white-space: nowrap;
   }
 
   /* Aturan khusus untuk COD CRM */
   .heading_container.cod h2::after {
-      content: 'COD CRM';
-      display: block;
-      color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+    content: "COD CRM";
+    display: block;
+    color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
   }
 
   /* Aturan khusus untuk TF CRM */
   .heading_container.tf h2::after {
-      content: 'TF CRM';
-      display: block;
-      color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+    content: "TF CRM";
+    display: block;
+    color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+  }
+
+  .heading_container.talent h2::after {
+    content: "TALENT LIVE";
+    display: block;
+    color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
   }
 
   /* Sembunyikan span asli */
   .heading_container h2 span {
-      display: none;
+    display: none;
   }
 }
-
-
 
 .contact_section input {
   width: 100%;
@@ -732,7 +743,7 @@ a:focus {
 .contact_section button:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 .contact_section .map_container {
@@ -769,8 +780,8 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .info_section .info_contact .contact_link_box a {
@@ -798,11 +809,11 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #ffffff;
   border-radius: 100%;
   margin-right: 10px;
@@ -819,10 +830,10 @@ a:focus {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .info_section .info_links a {
@@ -830,8 +841,8 @@ a:focus {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-bottom: 15px;
   color: #000000;
 }
@@ -883,7 +894,7 @@ a:focus {
 .info_section form button:hover {
   color: #ffffff;
   -webkit-transform: translateY(-3px);
-          transform: translateY(-3px);
+  transform: translateY(-3px);
 }
 
 /* end info section */
@@ -903,15 +914,9 @@ a:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
-
-
-
-
-
-
-
 /* style untuk codrm.html */
-.form_container input[type="text"], .form_container input[type="email"] {
+.form_container input[type="text"],
+.form_container input[type="email"] {
   width: 100%; /* Mengatur lebar input menjadi 100% dari container */
   box-sizing: border-box; /* Memastikan padding dan border termasuk dalam lebar total */
   margin-bottom: 10px; /* Menambahkan sedikit ruang di bawah setiap input */
@@ -930,101 +935,95 @@ button {
   padding: 10px; /* Menambahkan padding pada button untuk kenyamanan */
 }
 
-
 .wajib_diisi {
   color: red;
 }
 
 .red-border {
-border: 1px solid rgb(218, 218, 218) !important;
+  border: 1px solid rgb(218, 218, 218) !important;
 }
 
-
-
 .form-control {
-padding-right: 30px; /* Menambah padding di sisi kanan agar teks tidak tertutupi oleh ikon */
+  padding-right: 30px; /* Menambah padding di sisi kanan agar teks tidak tertutupi oleh ikon */
 }
 
 .heading_container2 {
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 100%;
-/* background-color: #ffffff; */
-padding: 10px 0;
-position: relative; /* Menambahkan positioning relatif */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* background-color: #ffffff; */
+  padding: 10px 0;
+  position: relative; /* Menambahkan positioning relatif */
 }
 
 .dropdown {
-position: absolute; /* Mengatur dropdown agar posisinya absolut */
-right: 0; /* Menempatkan di ujung kanan */
-/* top: 50%; Menempatkan di tengah secara vertikal */
-transform: translateY(-50%); /* Mengatur posisi tepat di tengah vertikal */
+  position: absolute; /* Mengatur dropdown agar posisinya absolut */
+  right: 0; /* Menempatkan di ujung kanan */
+  /* top: 50%; Menempatkan di tengah secara vertikal */
+  transform: translateY(-50%); /* Mengatur posisi tepat di tengah vertikal */
 }
 
 .fa-bars {
-font-size: 1.5em;
+  font-size: 1.5em;
 }
 
-
-
 .heading_container h2 {
-margin: 0; /* Menghilangkan margin default */
-flex-shrink: 0; /* Mencegah H2 menyusut */
+  margin: 0; /* Menghilangkan margin default */
+  flex-shrink: 0; /* Mencegah H2 menyusut */
 }
 
 #inputId {
-width: 150px; /* Atur lebar maksimal input */
-margin-left: auto; /* Ini mendorong input ke kanan */
-padding: 5px 10px;
-border: 1px solid #000000;
-height: 38px; /* Tinggi untuk menyamakan dengan tinggi H2 jika diperlukan */
+  width: 150px; /* Atur lebar maksimal input */
+  margin-left: auto; /* Ini mendorong input ke kanan */
+  padding: 5px 10px;
+  border: 1px solid #000000;
+  height: 38px; /* Tinggi untuk menyamakan dengan tinggi H2 jika diperlukan */
 }
 
 .hide-2-product {
-display: none;
+  display: none;
 }
 
 .hide-3-product {
-display: none;
+  display: none;
 }
 
 .dropdown button.btn-secondary {
-background-color: transparent; /* Menghilangkan warna background */
-border: none; /* Menghilangkan border */
-color: black; /* Mengubah warna teks menjadi hitam */
-padding: 10px 5px;
+  background-color: transparent; /* Menghilangkan warna background */
+  border: none; /* Menghilangkan border */
+  color: black; /* Mengubah warna teks menjadi hitam */
+  padding: 10px 5px;
 }
 
 .dropdown button.btn-secondary:hover {
   background-color: transparent;
   color: #f8842b;
-
-  }
+}
 
 .fa-bars {
-color: black; /* Mengubah warna icon menjadi hitam */
+  color: black; /* Mengubah warna icon menjadi hitam */
 }
 
 .dropdown-menu a.dropdown-item:hover {
-background-color: #007bff; /* Warna background saat hover */
-color: white; /* Warna teks saat hover */
+  background-color: #007bff; /* Warna background saat hover */
+  color: white; /* Warna teks saat hover */
 }
 
 /* Default style for the dropdown items */
 .dropdown-menu .dropdown-item {
-color: black;
+  color: black;
 }
 
 /* Style for "Batalkan" context */
 .dropdown-menu .dropdown-item.cancel {
-color: red;
+  color: red;
 }
 
 /* Hover style for "Batalkan" context */
 .dropdown-menu .dropdown-item.cancel:hover {
-background-color: red;
-color: white;
+  background-color: red;
+  color: white;
 }
 
 /* Atur tinggi dropdown select2 */
@@ -1034,29 +1033,35 @@ color: white;
   align-items: center;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__rendered {
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
   line-height: 50px !important; /* Sesuaikan ini untuk mengatur teks agar vertikal tengah */
 }
 
-.select2-container--default .select2-selection--single .select2-selection__arrow {
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow {
   height: 50px !important; /* Sesuaikan ini untuk mengatur tinggi panah dropdown */
 }
 
-  /* Menyesuaikan posisi ikon clear */
+/* Menyesuaikan posisi ikon clear */
 .select2-selection__clear {
-    position: absolute;
-    right: 10px; 
-    color: red !important; /* Ubah warna menjadi merah */
-    top: 50%;
-    transform: translateX(150%);
-    font-size: 16px; /* Sesuaikan ukuran jika diperlukan */
-     z-index: 10; /*Pastikan di atas elemen lainnya */
-    cursor: pointer; /* Ubah cursor menjadi pointer */
+  position: absolute;
+  right: 10px;
+  color: red !important; /* Ubah warna menjadi merah */
+  top: 50%;
+  transform: translateX(150%);
+  font-size: 16px; /* Sesuaikan ukuran jika diperlukan */
+  z-index: 10; /*Pastikan di atas elemen lainnya */
+  cursor: pointer; /* Ubah cursor menjadi pointer */
 }
 
 /* Pastikan kotak select2 cukup luas untuk ikon clear */
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-    padding-right: 30px; /* Tambahkan ruang untuk ikon clear */
+.select2-container--default
+  .select2-selection--single
+  .select2-selection__rendered {
+  padding-right: 30px; /* Tambahkan ruang untuk ikon clear */
 }
 
 .form_container {
@@ -1157,165 +1162,160 @@ color: white;
   }
 }
 
-
-
-
-
 /* STYLE UNTUK DROPDOWN NAVBAR CRM DAN AKUISISI (DIBEDAIN KARENA KETIMPA DENGNA STYLE DROPDOWN SEBELUMNYA */
 
-    /* Style khusus untuk dropdown CRM */
-    .navbar-nav .dropdown-crm {
-      position: relative;
-    }
+/* Style khusus untuk dropdown CRM */
+.navbar-nav .dropdown-crm {
+  position: relative;
+}
 
-    .navbar-nav .dropdown-crm .dropdown-toggle-crm {
-      color: #ffffff;
-      padding: 5px 20px;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+.navbar-nav .dropdown-crm .dropdown-toggle-crm {
+  color: #ffffff;
+  padding: 5px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-    .navbar-nav .dropdown-crm .dropdown-toggle-crm:hover,
-    .navbar-nav .dropdown-crm .dropdown-toggle-crm:focus {
-      background-color: #ffffff;
-      color: #000000;
-    }
+.navbar-nav .dropdown-crm .dropdown-toggle-crm:hover,
+.navbar-nav .dropdown-crm .dropdown-toggle-crm:focus {
+  background-color: #ffffff;
+  color: #000000;
+}
 
-    .navbar-nav .dropdown-crm .dropdown-menu-crm {
-      background-color: #ffffff;
-      border-radius: 5px;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      margin-top: 10px;
-      padding: 0;
-      min-width: 200px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.navbar-nav .dropdown-crm .dropdown-menu-crm {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  padding: 0;
+  min-width: 200px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .navbar-nav .dropdown-crm .dropdown-item-crm {
-      color: #000000;
-      padding: 10px 20px;
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.5;
-      transition: background-color 0.3s ease;
-      display: block;
-    }
+.navbar-nav .dropdown-crm .dropdown-item-crm {
+  color: #000000;
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+  display: block;
+}
 
-    .navbar-nav .dropdown-crm .dropdown-item-crm:hover {
-      background-color: #f8842b;
-      color: #ffffff;
-    }
+.navbar-nav .dropdown-crm .dropdown-item-crm:hover {
+  background-color: #f8842b;
+  color: #ffffff;
+}
 
-    .navbar-nav .dropdown-crm .dropdown-menu-crm::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid #ffffff;
-    }
+.navbar-nav .dropdown-crm .dropdown-menu-crm::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ffffff;
+}
 
-    /* Style khusus untuk dropdown AKUISISI */
-    .navbar-nav .dropdown-akuisisi {
-      position: relative;
-    }
+/* Style khusus untuk dropdown AKUISISI */
+.navbar-nav .dropdown-akuisisi {
+  position: relative;
+}
 
-    .navbar-nav .dropdown-akuisisi .dropdown-toggle-akuisisi {
-      color: #ffffff;
-      padding: 5px 20px;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
+.navbar-nav .dropdown-akuisisi .dropdown-toggle-akuisisi {
+  color: #ffffff;
+  padding: 5px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-    .navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi {
-      background-color: #ffffff;
-      border-radius: 5px;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      margin-top: 10px;
-      padding: 0;
-      min-width: 200px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 999;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 10px;
+  padding: 0;
+  min-width: 200px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi {
-      color: #000000;
-      padding: 10px 20px;
-      margin: 0;
-      font-size: 16px;
-      line-height: 1.5;
-      transition: background-color 0.3s ease;
-      display: block;
-    }
+.navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi {
+  color: #000000;
+  padding: 10px 20px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+  display: block;
+}
 
-    .navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi:hover {
-      background-color: #f8842b;
-      color: #ffffff;
-    }
+.navbar-nav .dropdown-akuisisi .dropdown-item-akuisisi:hover {
+  background-color: #f8842b;
+  color: #ffffff;
+}
 
-    .navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid #ffffff;
-    }
-  
+.navbar-nav .dropdown-akuisisi .dropdown-menu-akuisisi::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ffffff;
+}
 
-    .breadcrumb {
-      padding: 10px 15px;
-      margin-bottom: 20px;
-      list-style: none;
-      background-color: transparent;
-      border-radius: 4px;
-    }
-    .breadcrumb > li {
-      display: inline;
-      font-size: 14px;
-    }
-    .breadcrumb > li + li:before {
-      content: "/\00a0";
-      padding: 0 5px;
-      color: #ccc;
-    }
-    .breadcrumb > li a {
-      color: #000000;
-      text-decoration: none;
-    }
-    .breadcrumb > li a:hover {
-      text-decoration: underline;
-    }
+.breadcrumb {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 4px;
+}
+.breadcrumb > li {
+  display: inline;
+  font-size: 14px;
+}
+.breadcrumb > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+.breadcrumb > li a {
+  color: #000000;
+  text-decoration: none;
+}
+.breadcrumb > li a:hover {
+  text-decoration: underline;
+}
 
-    .select2-container .select2-selection__placeholder {
-      /* padding-left: 10px; */
-      font-size: 14px;
-    }
+.select2-container .select2-selection__placeholder {
+  /* padding-left: 10px; */
+  font-size: 14px;
+}
 
-    .select2-container .select2-selection--single {
-      border-radius: 8px !important;
-      padding-left: 10px;
-    }
+.select2-container .select2-selection--single {
+  border-radius: 8px !important;
+  padding-left: 10px;
+}

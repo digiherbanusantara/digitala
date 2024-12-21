@@ -1,42 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <!-- Site Metas -->
-  <meta name="keywords" content=""/>
-  <meta name="description" content=""/>
-  <meta name="author" content=""/>
-  <title>Login - DIGITALA</title>
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-  <!-- Font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet"/>
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet"/>
-  <!-- Responsive style -->
-  <link href="css/responsive.css" rel="stylesheet"/>
-   <!-- Link ke manifest.json -->
-   <link rel="manifest" href="/digitala/manifest.json">
-
-
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Login - DIGITALA</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- Font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <!-- Link ke manifest.json -->
+    <link rel="manifest" href="/digitala/manifest.json" />
 
     <!-- Tambahkan SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #5493aa, #19607a); /* Background with gradient */
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(
+          to right,
+          #5493aa,
+          #19607a
+        ); /* Background with gradient */
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .login_container {
         display: flex;
         justify-content: center;
@@ -51,16 +56,16 @@
         box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
       }
       .login_form .form-control {
-    height: 50px;
-    border-radius: 5px;
-    width: 100%; /* Set to 100% by default */
-  }
-  
-  @media (min-width: 768px) {
-    .login_form .form-control {
-      width: 500px; /* Apply the 500px width only on screens larger than 768px (tablet and desktop) */
-    }
-  }
+        height: 50px;
+        border-radius: 5px;
+        width: 100%; /* Set to 100% by default */
+      }
+
+      @media (min-width: 768px) {
+        .login_form .form-control {
+          width: 500px; /* Apply the 500px width only on screens larger than 768px (tablet and desktop) */
+        }
+      }
       .login_form button {
         background-color: #ffab6a;
         border: none;
@@ -83,84 +88,108 @@
         text-align: center;
       }
     </style>
-  
-</head>
-<body>
-
-  <div class="login_container">
-    <div class="login_form">
-      <div class="brand_logo">DIGITALA</div>
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" name="password" required placeholder="Enter your password">
-        </div>
-        <button type="button" onclick="validateLogin()">Login</button>
-      </form>
+  </head>
+  <body>
+    <div class="login_container">
+      <div class="login_form">
+        <div class="brand_logo">DIGITALA</div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              required
+              placeholder="Enter your username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              required
+              placeholder="Enter your password"
+            />
+          </div>
+          <button type="button" onclick="validateLogin()">Login</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script>
-    function validateLogin() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-  
-      // Daftar username dan password yang valid
-      var users = {
-        "admin": "admin",
-        "crm": "crm",
-        "finance": "financedhn",
-        "csadhn": "csadhn",
-        "superuser": "superuser",
-        "admininputer": "admininputerdhn",
-        "cs.digiherba02@gmail.com": "csa.dhn02",
-        "cs.digiherba20@gmail.com": "csa.dhn20",
-        "cs.digiherba09@gmail.com": "csa.dhn09",
-        "cs.digiherba18@gmail.com": "csa.dhn18",
-        "cs.digiherba11@gmail.com": "csa.dhn11",
-        "cs.digiherba21@gmail.com": "csa.dhn21",
-        "cs.digiherba08@gmail.com": "csa.dhn08",
-        "cs.digiherba04@gmail.com": "csa.dhn04",
-        "cs.digiherba05@gmail.com": "csa.dhn05",
-        "cs.digiherba03@gmail.com": "csa.dhn03",
-        "generossolusinya@gmail.com": "csa.dhn12",
-        "naya.csdhn@gmail.com": "csa.dhn13",
-      };
-  
-      // Memeriksa apakah username dan password cocok
-      if (users[username] && users[username] === password) {
-        // Menampilkan popup dengan SweetAlert2
-        Swal.fire({
-          title: 'Login Successful!',
-          text: 'You will be redirected to the main page.',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Simpan status login di sessionStorage
-            sessionStorage.setItem('loggedIn', true);
-            window.location.href = "index.html";
+    <script>
+      function validateLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Daftar username dan password yang valid
+        var users = {
+          admin: "admin",
+          talent: "talentdhn",
+          crm: "crm",
+          finance: "financedhn",
+          csadhn: "csadhn",
+          superuser: "superuser",
+          admininputer: "admininputerdhn",
+          "cs.digiherba02@gmail.com": "csa.dhn02",
+          "cs.digiherba20@gmail.com": "csa.dhn20",
+          "cs.digiherba09@gmail.com": "csa.dhn09",
+          "cs.digiherba18@gmail.com": "csa.dhn18",
+          "cs.digiherba11@gmail.com": "csa.dhn11",
+          "cs.digiherba21@gmail.com": "csa.dhn21",
+          "cs.digiherba08@gmail.com": "csa.dhn08",
+          "cs.digiherba04@gmail.com": "csa.dhn04",
+          "cs.digiherba05@gmail.com": "csa.dhn05",
+          "cs.digiherba03@gmail.com": "csa.dhn03",
+          "generossolusinya@gmail.com": "csa.dhn12",
+          "naya.csdhn@gmail.com": "csa.dhn13",
+        };
+
+        // Memeriksa apakah username dan password cocok
+        if (users[username] && users[username] === password) {
+          // Pengecekan khusus untuk user "talent"
+          if (username === "talent" && password === "talentdhn") {
+            Swal.fire({
+              title: "Login Successful!",
+              text: "You will be redirected to the Talent Daily page.",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                sessionStorage.setItem("loggedIn", true);
+                window.location.href = "index_talent.html";
+              }
+            });
+          } else {
+            Swal.fire({
+              title: "Login Successful!",
+              text: "You will be redirected to the main page.",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                sessionStorage.setItem("loggedIn", true);
+                window.location.href = "index.html";
+              }
+            });
           }
-        });
-  
-      } else {
-        // Menampilkan popup kesalahan login
-        Swal.fire({
-          title: 'Error!',
-          text: 'Invalid username or password!',
-          icon: 'error',
-          confirmButtonText: 'Try Again'
-        });
+        } else {
+          // Menampilkan popup kesalahan login
+          Swal.fire({
+            title: "Error!",
+            text: "Invalid username or password!",
+            icon: "error",
+            confirmButtonText: "Try Again",
+          });
+        }
       }
-    }
-  </script>
-  
+    </script>
 
-        <!-- Script untuk memperbarui basePath sesuai environment
+    <!-- Script untuk memperbarui basePath sesuai environment
         <script>
           let basePath = window.location.hostname === 'localhost' ? '/' : '/omni/';
           
@@ -180,24 +209,22 @@
               }
           });
       </script> -->
-  
-      <!-- Service Worker Registration -->
-      <script>
-        if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/digitala/service-worker.js')
-    .then(registration => {
-      console.log('Service Worker registered with scope:', registration.scope);
-    })
-    .catch(error => {
-      console.log('Service Worker registration failed:', error);
-    });
-}
 
-      </script>
-  
-  
-
-
-
-</body>
+    <!-- Service Worker Registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/digitala/service-worker.js")
+          .then((registration) => {
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          })
+          .catch((error) => {
+            console.log("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+  </body>
 </html>

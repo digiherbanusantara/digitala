@@ -1,251 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>DIGITALA</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
 
+    <!-- Select2 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-<!-- Basic -->
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<!-- Mobile Metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-<!-- Site Metas -->
-<meta name="keywords" content=""/>
-<meta name="description" content=""/>
-<meta name="author" content=""/>
-<title>DIGITALA</title>
-<!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-<!-- font awesome style -->
-<link href="css/font-awesome.min.css" rel="stylesheet"/>
-<!-- Custom styles for this template -->
-<link href="css/style.css" rel="stylesheet"/>
-<!-- responsive style -->
-<link href="css/responsive.css" rel="stylesheet"/>
+    <style>
+      body {
+        margin: 0;
+        /* font-family: Arial, sans-serif; */
+        background: linear-gradient(
+          to right,
+          #ffffff,
+          #8ac1d5
+        ); /* Background with gradient */
+      }
+    </style>
+  </head>
 
-<!-- Select2 CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+  <body class="sub_page">
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html"><span>DIGITALA</span></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="index.html"
+                    style="margin-right: 10px"
+                    >Home <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <!-- CRM Dropdown -->
+                <li class="nav-item dropdown-crm">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    C R M
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="codcrm.html"
+                      >Form COD CRM</a
+                    >
+                    <a class="dropdown-item-crm" href="tfcrm.html"
+                      >Form TF CRM</a
+                    >
+                    <hr style="border: 1px solid #ccc; margin: 1px 0" />
+                    <a class="dropdown-item-crm" href="result_codcrm.html"
+                      >Result COD CRM</a
+                    >
+                    <a class="dropdown-item-crm" href="result_tfcrm.html"
+                      >Result TF CRM</a
+                    >
 
-<style>
-  body {
-      margin: 0;
-      /* font-family: Arial, sans-serif; */
-      background: linear-gradient(to right, #ffffff, #8ac1d5); /* Background with gradient */
-      
-    }
-</style>
+                    <hr style="border: 1px solid #ccc; margin: 1px 0" />
+                    <a class="dropdown-item-crm" href="lookerstudio_crm.html"
+                      >Dashboard CRM</a
+                    >
+                  </div>
+                </li>
 
-  
+                <li class="nav-item dropdown-crm">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    C S A
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="codakuisisi.html"
+                      >Form COD CSA</a
+                    >
+                    <a class="dropdown-item-crm" href="tfakuisisi.html"
+                      >Form TF CSA</a
+                    >
+                    <hr style="border: 1px solid #ccc; margin: 1px 0" />
+                    <a class="dropdown-item-crm" href="result_codak.html"
+                      >Result COD CSA</a
+                    >
+                    <a class="dropdown-item-crm" href="result_tfak.html"
+                      >Result TF CSA</a
+                    >
 
-</head>
+                    <hr style="border: 1px solid #ccc; margin: 1px 0" />
+                    <a class="dropdown-item-crm" href="lookerstudio_csa.html"
+                      >Dashboard CSA</a
+                    >
+                  </div>
+                </li>
 
+                <li class="nav-item dropdown-crm">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    RESI
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="db_all_sby.html"
+                      >RESI GD SBY</a
+                    >
+                    <a class="dropdown-item-crm" href="#.html"
+                      >RESI GD PAMULANG</a
+                    >
+                  </div>
+                </li>
 
+                <li class="nav-item dropdown-crm" data-menu="talentlive">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    TALENT LIVE
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="talent_daily.html"
+                      >DAILY REPORT</a
+                    >
+                    <a class="dropdown-item-crm" href="talent_offduty.html"
+                      >OFF DUTY</a
+                    >
+                  </div>
+                </li>
 
-<body class="sub_page">
-<div class="hero_area">
-	<!-- header section strats -->
-	<header class="header_section">
-	<div class="container-fluid">
-		<nav class="navbar navbar-expand-lg custom_nav-container ">
-		<a class="navbar-brand" href="index.html"><span>DIGITALA</span></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class=""></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ">
-				<li class="nav-item ">
-					<a class="nav-link" href="index.html" style="margin-right: 10px;">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<!-- CRM Dropdown -->
-				<li class="nav-item dropdown-crm">
-					<a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
-					  C R M
-					</a>
-					<div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
-					  <a class="dropdown-item-crm" href="codcrm.html">Form COD CRM</a>
-					  <a class="dropdown-item-crm" href="tfcrm.html">Form TF CRM</a>
-					  <hr style="border: 1px solid #ccc; margin: 1px 0;">
-					  <a class="dropdown-item-crm" href="result_codcrm.html">Result COD CRM</a>
-					  <a class="dropdown-item-crm" href="result_tfcrm.html">Result TF CRM</a>
+                <li class="nav-item dropdown-crm active">
+                  <a
+                    class="nav-link dropdown-toggle-crm"
+                    href="#"
+                    id="navbarDropdownCRM"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="margin-right: 10px"
+                  >
+                    About
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-crm"
+                    aria-labelledby="navbarDropdownCRM"
+                  >
+                    <a class="dropdown-item-crm" href="about.html">Wireflow</a>
+                    <a class="dropdown-item-crm" href="versiondigitala.html"
+                      >Version Digitala</a
+                    >
+                  </div>
+                </li>
 
-					  <hr style="border: 1px solid #ccc; margin: 1px 0;">
-					  <a class="dropdown-item-crm" href="lookerstudio_crm.html">Dashboard CRM</a>
-					</div>
-				  </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link logout-mobile"
+                    href="#"
+                    onclick="logout()"
+                    style="margin-right: 10px; color: #ffab6a"
+                    >Logout</a
+                  >
+                </li>
+              </ul>
+              <div class="quote_btn-container">
+                <a href="#" class="quote_btn" onclick="logout()">Logout</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+    <!-- contact section -->
+    <section class="contact_section layout_padding">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
+            <div class="breadcrumb">
+              <li><a href="index.html">Home</a></li>
+              <li class="active" style="color: #f8842b">Version</li>
+            </div>
+            <div class="form_container">
+              <div class="heading_container cod">
+                <h2>VERSION <span style="color: #ffab6a">DIGITALA</span></h2>
+              </div>
+              <div class="heading_container2 mb-5"></div>
+              <form
+                method="POST"
+                action="https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec"
+              >
+                <div class="row mb-4">
+                  <!-- <div class="container"> -->
 
-				  <li class="nav-item dropdown-crm">
-					<a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
-					  C S A
-					</a>
-					<div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
-					  <a class="dropdown-item-crm" href="codakuisisi.html">Form COD CSA</a>
-					  <a class="dropdown-item-crm" href="tfakuisisi.html">Form TF CSA</a>
-					  <hr style="border: 1px solid #ccc; margin: 1px 0;">
-								<a class="dropdown-item-crm" href="result_codak.html">Result COD CSA</a>
-								<a class="dropdown-item-crm" href="result_tfak.html">Result TF CSA</a>
+                  <div class="col-md-12 mb-4">
+                    <h3><strong>November 2024 [V.3.0]</strong></h3>
+                    <ul>
+                      <li>
+                        Add New Feature Dashboard CRM & CSA | Dashboard dengan
+                        Navigasi Interaktif dan Fleksibel, Filter Data,
+                        Integrasi dengan Data Eksternal Secara Real-Time
+                      </li>
+                      <li>
+                        Fix bug pada input type Nama & Alamat : User dapat
+                        mengedit di bagian text yang baru diinput dan tidak
+                        otomatis menjorok ke belakang pada nama dan alamat input
+                        type
+                      </li>
+                      <li>
+                        Fix Bug pada kolom Provinsi [Provinsi saat ini sudah
+                        tereset (NULL) ketika sudah melakukan submit]
+                      </li>
+                      <li>
+                        Penambahan kolom baru : Upload Bukti Chat (Screenshoot
+                        hasil chat dengan customer yang menunjukan bahwa dari
+                        percakapan tersebut customer benar benar membeli).
+                        Digunakan per tanggal 25 November 2024
+                      </li>
+                    </ul>
+                    <p></p>
+                  </div>
 
-								<hr style="border: 1px solid #ccc; margin: 1px 0;">
-					  <a class="dropdown-item-crm" href="lookerstudio_csa.html">Dashboard CSA</a>
-					</div>
-				  </li>
-
-				  <li class="nav-item dropdown-crm">
-					<a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
-					  RESI
-					</a>
-					<div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
-					  <a class="dropdown-item-crm" href="db_all_sby.html">RESI GD SBY</a>
-					  <a class="dropdown-item-crm" href="#.html">RESI GD PAMULANG</a>
-					</div>
-				  </li>
-	
-
-
-				<li class="nav-item dropdown-crm active">
-                <a class="nav-link dropdown-toggle-crm" href="#" id="navbarDropdownCRM" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 10px;">
-                  About
-                </a>
-                <div class="dropdown-menu dropdown-menu-crm" aria-labelledby="navbarDropdownCRM">
-                  <a class="dropdown-item-crm" href="about.html">Wireflow</a>
-                  <a class="dropdown-item-crm" href="versiondigitala.html">Version Digitala</a>
+                  <div class="col-md-12 mb-4">
+                    <h3><strong>November 2024 [V.2.2]</strong></h3>
+                    <ul>
+                      <li>
+                        Fix nama customer tidak dapat di awali dengan [SPACE] /
+                        teks kosong
+                      </li>
+                      <li>
+                        Fix alamat lengkap customer tidak dapat di input dengan
+                        ['] atau [`]
+                      </li>
+                      <li>
+                        Fix Biaya Admin (Biaya Penanganan/Fee COD) pembualatan
+                        ke bawah (Contoh : Rp 5.737,5 == Rp 5.737)
+                      </li>
+                      <li>
+                        Layouting input Prov, Kab/Kota & Kec menjadi satu baris
+                        dalam tampilan desktop
+                      </li>
+                      <li>Perubahan total header pada result COD & TF CSA</li>
+                    </ul>
+                    <p></p>
+                  </div>
                 </div>
-              </li>
+                <div class="row mb-4">
+                  <div class="col-md-6 mb-4">
+                    <h3><strong>October 2024 [V.2.1]</strong></h3>
+                    <ul>
+                      <li>Add fitur result COD & TF CRM & CSA</li>
+                      <li>Add fitur detail result</li>
+                      <li>
+                        Add fitur Search pada dependent dropdown (Provinsi,
+                        Kab/Kota, Kecamatan)
+                      </li>
+                      <li>
+                        Merubah logo carousel pada halaman utama (Req Tim
+                        Design)
+                      </li>
+                      <li>
+                        Perubahan total header pada datatable di result (COD &
+                        TF, CRM & CSA)
+                      </li>
+                      <li>Perubahan nama web app menjadi DIGITALA</li>
+                    </ul>
+                    <p></p>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <h3><strong>September 2024 [V.2]</strong></h3>
+                    <ul>
+                      <li>Add fitur PWA (Progressive Web App)</li>
+                      <li>Dependent Dropdown (Prov, Kab/Kota, Kecamatan)</li>
+                      <li>
+                        Auto kalkulasi Biaya Admin (Fee Cod/Biaya penanganan)
+                      </li>
+                      <li>Auto kalkulasi Total COD & TF</li>
+                      <li>Login / logout fitur</li>
+                    </ul>
+                    <p></p>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <h3><strong>August 2024 [V.1]</strong></h3>
+                    <ul>
+                      <li>Pembuatan user interface "OMNI"</li>
+                      <li>Pembuatan form COD & TF CRM & CSA</li>
+                      <li>Dropdown Dinamis (Mengambil data dari database)</li>
+                      <li>Data Validasi (Number only, IS NOT NULL, etc)</li>
+                    </ul>
+                    <p></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end contact section -->
+    <div class="footer_container">
+      <!-- info section -->
 
-				  <li class="nav-item">
-					<a class="nav-link logout-mobile" href="#" onclick="logout()" style="margin-right: 10px; color: #ffab6a;">Logout</a>
-				  </li>
-				</ul>
-				<div class="quote_btn-container">
-				  <a href="#" class="quote_btn" onclick="logout()">Logout</a>
-			</div>
-		</div>
-		</nav>
-	</div>
-	</header>
-	<!-- end header section --></div>
-<!-- contact section -->
-<section class="contact_section layout_padding">
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-10 col-lg-8 offset-md-1 offset-lg-2">
-			<div class="breadcrumb">
-				<li><a href="index.html">Home</a></li>
-				<li class="active" style="color: #f8842b;">Version</li>
-			  </div>
-			<div class="form_container">
-				<div class="heading_container cod">
-					<h2>VERSION <span style="color: #ffab6a;">DIGITALA</span></h2>
-				</div>
-				<div class="heading_container2 mb-5">
-					
-				</div>
-				<form method="POST" action="https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec">
-					<div class="row mb-4">
-						<!-- <div class="container"> -->
+      <!-- end info section -->
 
-							<div class="col-md-12 mb-4">
-								<h3><Strong>November 2024 [V.3.0]</Strong></h3>
-								<ul>
-									<li>Add New Feature Dashboard CRM & CSA | Dashboard dengan Navigasi Interaktif dan Fleksibel, Filter Data, Integrasi dengan Data Eksternal Secara Real-Time</li>
-									<li>Fix bug pada input type Nama & Alamat : User dapat mengedit di bagian text yang baru diinput dan tidak otomatis menjorok ke belakang pada nama dan alamat input type</li>
-									<li>Fix Bug pada kolom Provinsi [Provinsi saat ini sudah tereset (NULL) ketika sudah melakukan submit]</li>
-									<li>Penambahan kolom baru : Upload Bukti Chat (Screenshoot hasil chat dengan customer yang menunjukan bahwa dari percakapan tersebut customer benar benar membeli). Digunakan per tanggal 25 November 2024</li>
-									
-									
-								</ul>
-								<p></p>
-							</div>
+      <!-- footer section -->
+      <footer class="footer_section">
+        <div class="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="#">Data Analyst | PT Digi Herba Nusantara</a>
+          </p>
+        </div>
+      </footer>
+      <!-- footer section -->
+    </div>
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
 
-							<div class="col-md-12 mb-4">
-								<h3><Strong>November 2024 [V.2.2]</Strong></h3>
-								<ul>
-									<li>Fix nama customer tidak dapat di awali dengan [SPACE] / teks kosong</li>
-									<li>Fix alamat lengkap customer tidak dapat di input dengan ['] atau [`]</li>
-									<li>Fix Biaya Admin (Biaya Penanganan/Fee COD) pembualatan ke bawah (Contoh : Rp 5.737,5 == Rp 5.737)</li>
-									<li>Layouting input Prov, Kab/Kota & Kec menjadi satu baris dalam tampilan desktop</li>
-									<li>Perubahan total header pada result COD & TF CSA</li>
-									
-								</ul>
-								<p></p>
-							</div>
-							
-					</div>	
-					<div class="row mb-4">
-						<div class="col-md-6 mb-4">
-							<h3><Strong>October 2024 [V.2.1]</Strong></h3>
-							<ul>
-								<li>Add fitur result COD & TF CRM & CSA</li>
-								<li>Add fitur detail result</li>
-								<li>Add fitur Search pada dependent dropdown (Provinsi, Kab/Kota, Kecamatan)</li>
-								<li>Merubah logo carousel pada halaman utama (Req Tim Design)</li>
-								<li>Perubahan total header pada datatable di result (COD & TF, CRM & CSA)</li>
-								<li>Perubahan nama web app menjadi DIGITALA</li>
-								
-							</ul>
-							<p></p>
-						</div>
-						<div class="col-md-6 mb-4">
-							<h3><Strong>September 2024 [V.2]</Strong></h3>
-							<ul>
-								<li>Add fitur PWA (Progressive Web App)</li>
-								<li>Dependent Dropdown (Prov, Kab/Kota, Kecamatan)</li>
-								<li>Auto kalkulasi Biaya Admin (Fee Cod/Biaya penanganan)</li>
-								<li>Auto kalkulasi Total COD & TF</li>
-								<li>Login / logout fitur</li>
-								
-							</ul>
-							<p></p>
-						</div>
-						<div class="col-md-4 mb-4">
-							<h3><Strong>August 2024 [V.1]</Strong></h3>
-							<ul>
-								<Li>Pembuatan user interface "OMNI"</Li>
-								<li>Pembuatan form COD & TF CRM & CSA</li>
-								<li>Dropdown Dinamis (Mengambil data dari database)</li>
-								<li>Data Validasi (Number only, IS NOT NULL, etc)</li>
-								
-							</ul>
-							<p></p>
-						</div>
-					</div>	
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-</section>
-<!-- end contact section -->
-<div class="footer_container">
-	<!-- info section -->
-  
-
-  
-	<!-- end info section -->
-  
-	<!-- footer section -->
-	<footer class="footer_section">
-	  <div class="container">
-		<p>
-		  &copy; <span id="displayYear"></span> All Rights Reserved By
-		  <a href="#">Data Analyst | PT Digi Herba Nusantara</a>
-		</p>
-	  </div>
-	</footer>
-	<!-- footer section -->
-  </div>
-	<!-- jQery -->
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<!-- popper js -->
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-	<!-- bootstrap js -->
-	<script src="js/bootstrap.js"></script>
-	<script src="js/custom.js"></script>
-
-
-	<script src="js/digitala.js"></script>
-
-	
-	
-
-	</body>
-	</html>
+    <script src="js/digitala.js"></script>
+  </body>
+</html>
