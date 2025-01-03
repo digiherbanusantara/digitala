@@ -345,9 +345,9 @@
 							<label for="note" class="form-label">Note Untuk Courir</label>
 							<input type="textarea" class="form-control" id="note" name="note" placeholder="Note" oninput="toUpperCaseDelayed(this)"></div>
 
-							<div class="col-md-6">
+							<div class="col-md-6" id="bukti_chat_container" style="display:none;">
 								<label for="bukti_chat" class="form-label">Upload Bukti Chat<span class="wajib_diisi">*</span></label>
-								<input class="form-control" id="bukti_chat" name="bukti_chat" type="file" required>
+								<input class="form-control" id="bukti_chat" name="bukti_chat" type="file">
 								<input type="hidden" id="bukti_chat_data" name="bukti_chat_data">
 								<input type="hidden" id="bukti_chat_name" name="bukti_chat_name">
 								<input type="hidden" id="bukti_chat_mimetype" name="bukti_chat_mimetype">
@@ -396,6 +396,43 @@
 
 	<script src="js/digitala.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+  <script>
+    // Fungsi untuk mengecek status_customer dan menampilkan atau menyembunyikan bukti_chat, serta menambahkan/ menghapus atribut required
+    document.getElementById("status_customer").addEventListener("change", function() {
+        var status = this.value;
+        var buktiChatContainer = document.getElementById("bukti_chat_container");
+        var buktiChatInput = document.getElementById("bukti_chat");
+
+        // Menampilkan bukti_chat jika status bernilai 'NCS' atau 'RO1', dan menambahkannya sebagai required
+        if (status === "NCS" || status === "RO1") {
+            buktiChatContainer.style.display = "block";
+            buktiChatInput.setAttribute("required", "true");  // Menambahkan atribut required
+        } else {
+            buktiChatContainer.style.display = "none";
+            buktiChatInput.removeAttribute("required");  // Menghapus atribut required
+        }
+    });
+
+    // Cek status awal saat halaman pertama dimuat
+    window.onload = function() {
+        var status = document.getElementById("status_customer").value;
+        var buktiChatContainer = document.getElementById("bukti_chat_container");
+        var buktiChatInput = document.getElementById("bukti_chat");
+
+        // Menyembunyikan bukti_chat jika status kosong atau tidak bernilai 'NCS' atau 'RO1', dan menghapus atribut required
+        if (status === "NCS" || status === "RO1") {
+            buktiChatContainer.style.display = "block";
+            buktiChatInput.setAttribute("required", "true");  // Menambahkan atribut required
+        } else {
+            buktiChatContainer.style.display = "none";
+            buktiChatInput.removeAttribute("required");  // Menghapus atribut required
+        }
+    }
+</script>
+
+
+
   <script>
 function updateBiayaPenanganan() {
   // Mengambil nilai harga produk dan biaya ongkir
