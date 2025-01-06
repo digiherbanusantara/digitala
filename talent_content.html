@@ -663,7 +663,7 @@
                       <tr>
                         <!-- <th>ID</th> -->
                         <th>Timestamp</th>
-                        <th>Host2</th>
+                        <th>Host</th>
                         <th>Date</th>
                         <th>Theme</th>
                         <th>Upload Time</th>
@@ -981,7 +981,14 @@
                 
                 { data: "theme", title: "Theme" },
                 { data: "upload_time", title: "Upload Time" },
-                { data: "link", title: "Link" },
+                {
+                  data: "link", 
+                  title: "Link",
+                  render: function(data, type, row) {
+                    // Memastikan data adalah string yang valid sebagai URL
+                    return data ? `<a href="${data}" target="_blank">${data}</a>` : '';
+                  }
+                },
                 { data: "information", title: "Information" },
                 { data: "reason_delay_content", title: "Reason Delay Content" },
                 { data: "total_content", title: "Total Content" },
