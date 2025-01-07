@@ -383,6 +383,30 @@
       .edit-btn:hover i {
         color: #f8842b;
       }
+
+      /* Memastikan form-control memenuhi lebar penuh */
+      input[type="date"],
+      input[type="time"],
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+        width: 100%; /* Pastikan elemen memenuhi baris */
+        box-sizing: border-box; /* Hindari padding memengaruhi lebar elemen */
+      }
+
+      /* Untuk kasus input khusus dengan lebar kecil di iOS */
+      input[type="date"],
+      input[type="time"] {
+        -webkit-appearance: none; /* Hilangkan gaya default Safari iOS */
+        appearance: none; /* Hilangkan gaya default browser */
+      }
+
+      /* Tambahkan gaya untuk konsistensi */
+      .form-control {
+        height: 50px; /* Samakan tinggi elemen */
+        font-size: 16px; /* Pastikan font-size cukup besar untuk mobile */
+      }
     </style>
   </head>
 
