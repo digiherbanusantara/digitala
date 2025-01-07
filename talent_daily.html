@@ -540,7 +540,7 @@
 
                   <div class="col-md-3 mb-3">
                     <label for="store" class="form-label"
-                      >Account<span class="wajib_diisi">*</span></label
+                      >Store<span class="wajib_diisi">*</span></label
                     >
                     <select
                       class="form-control form-label red-border"
@@ -668,6 +668,17 @@
                       oninput="formatRupiah(this)"
                       required
                     />
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <label for="note" class="form-label">Note</label>
+                    <textarea
+                      class="form-control red-border"
+                      id="note"
+                      name="note"
+                      placeholder=""
+                      oninput="this.value = this.value.toUpperCase();"
+                    ></textarea>
                   </div>
                 </div>
                 <div class="d-flex">
