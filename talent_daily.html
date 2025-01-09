@@ -791,6 +791,7 @@
                         <th>Date</th>
                         <th>Host</th>
                         <th>Store</th>
+                        <th>Session</th>
                         <th>Start Live</th>
                         <th>Followers</th>
                         <th>Viewers</th>
@@ -799,6 +800,7 @@
                         <th>Live Duration</th>
                         <th>Order</th>
                         <th>Sales</th>
+                        <th>Note</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -1159,7 +1161,7 @@
     <script>
       $(document).ready(function () {
         const scriptUrl =
-          "https://script.google.com/macros/s/AKfycbwUz9NckEKgPzrrIlJHe6po1cgEhU9UHbrX125O3rV1Z6zMZWsaY8OhErrhpsycOqkb/exec";
+          "https://script.google.com/macros/s/AKfycbwEKMP0DQeJ1A2Mq6y-qFmQk_jrvJLNvRiS60H8gZbu_DMlKjvvIId5TCG8AJYIcuW_/exec";
 
         $.getJSON(`${scriptUrl}?getDailyTalentData=true`, function (data) {
           if (data && Array.isArray(data) && data.length > 0) {
@@ -1171,6 +1173,7 @@
                 // { data: "Id", title: "ID" },
                 { data: "host", title: "Host" },
                 { data: "store", title: "Store" },
+                { data: "session", title: "Session" },
                 { data: "start_live", title: "Start Live" },
                 { data: "followers", title: "Followers" },
                 { data: "viewers", title: "Viewers" },
@@ -1188,6 +1191,7 @@
                     return "Rp0";
                   },
                 },
+                { data: "note", title: "Note" },
                 {
                   data: null,
                   title: "Action",
@@ -1374,6 +1378,7 @@
                 <option value="date">Date</option>
                 <option value="host">Host</option>
                 <option value="store">Store</option>
+                <option value="session">Session</option>
                 <option value="start_live">Start Live</option>
                 <option value="followers">Followers</option>
                 <option value="viewers">Viewers</option>
@@ -1382,6 +1387,7 @@
                 <option value="live_duration_time">Live Duration</option>
                 <option value="order">Order</option>
                 <option value="sales">Sales</option>
+                <option value="note">Note</option>
               </select>
             </div>
             <div class="mb-3">
