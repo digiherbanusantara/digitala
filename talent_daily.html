@@ -899,13 +899,16 @@
 
         // Inisialisasi Flatpickr untuk avgWatching
         const avgWatchingPicker = flatpickr("#avg_watching", {
-          enableTime: true, // Aktifkan time picker
-          noCalendar: true, // Hilangkan kalender
-          dateFormat: "H:i:S", // Format waktu dengan detik
-          time_24hr: true, // Gunakan format 24 jam
-          enableSeconds: true, // Tambahkan detik
-          minuteIncrement: 1, // Increment menit
-          secondIncrement: 1, // Increment detik
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i:S",
+          time_24hr: true,
+          enableSeconds: true,
+          defaultDate: null,
+          minuteIncrement: 1,
+          secondIncrement: 1,
+          disableMobile: true,
+
           defaultDate: null, // Tidak ada default value
           onOpen: function (selectedDates, dateStr, instance) {
             // Reset nilai jika pengguna belum berinteraksi
