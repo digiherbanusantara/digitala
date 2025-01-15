@@ -312,7 +312,7 @@
             </div>
             <div class="form_container">
               <div class="heading_container cod">
-                <h2>CHECK ONGKIR <span style="color: #ffab6a">JNT</span></h2>
+                <h2>CHECK ONGKIR <span style="color: #ffab6a">JNT </span></h2>
               </div>
               <div class="heading_container2 mb-5"></div>
               <form
@@ -359,13 +359,13 @@
 
                   <!-- Kabupaten/Kota Tujuan -->
                   <div class="col-md-4 mb-4">
-                    <label for="kabupaten_kota" class="form-label"
+                    <label for="kabupaten_kota_tujuan" class="form-label"
                       >Kabupaten/Kota Tujuan</label
                     >
                     <select
                       class="form-control form-label searchable-dropdown-city"
-                      name="kabupaten_kota"
-                      id="kabupaten_kota"
+                      name="kabupaten_kota_tujuan"
+                      id="kabupaten_kota_tujuan"
                       style="width: 100%; height: 50px"
                     >
                       <option value="" disabled selected hidden>
@@ -374,19 +374,19 @@
                     </select>
                   </div>
 
-                  <!-- Kecamatan Tujuan -->
+                  <!-- kecamatan_tujuan Tujuan -->
                   <div class="col-md-4 mb-4">
-                    <label for="kecamatan" class="form-label"
-                      >Kecamatan Tujuan</label
+                    <label for="kecamatan_tujuan" class="form-label"
+                      >kecamatan_tujuan Tujuan</label
                     >
                     <select
                       class="form-control form-label searchable-dropdown-district"
-                      name="kecamatan"
-                      id="kecamatan"
+                      name="kecamatan_tujuan"
+                      id="kecamatan_tujuan"
                       style="width: 100%; height: 50px"
                     >
                       <option value="" disabled selected hidden>
-                        Pilih Kecamatan
+                        Pilih kecamatan_tujuan
                       </option>
                     </select>
                   </div>
@@ -508,14 +508,14 @@
           });
 
           $(".searchable-dropdown-district").select2({
-            placeholder: "Pilih Kecamatan",
+            placeholder: "Pilih kecamatan_tujuan",
             allowClear: true,
           });
         }
 
         function handleDependentDropdown(ongkirData) {
-          var kabupatenDropdown = $("#kabupaten_kota");
-          var kecamatanDropdown = $("#kecamatan");
+          var kabupatenDropdown = $("#kabupaten_kota_tujuan");
+          var kecamatan_tujuanDropdown = $("#kecamatan_tujuan");
           var hargaField = $("#harga");
 
           $("#kota_asal").on("change", function () {
@@ -523,8 +523,8 @@
             kabupatenDropdown.html(
               '<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>'
             );
-            kecamatanDropdown.html(
-              '<option value="" disabled selected hidden>Pilih Kecamatan</option>'
+            kecamatan_tujuanDropdown.html(
+              '<option value="" disabled selected hidden>Pilih kecamatan_tujuan</option>'
             );
             hargaField.val(""); // Reset harga field
 
@@ -538,28 +538,28 @@
             populateKabupaten(sortedKabupaten);
           });
 
-          $("#kabupaten_kota").on("change", function () {
+          $("#kabupaten_kota_tujuan").on("change", function () {
             var selectedKabupaten = $(this).val();
-            kecamatanDropdown.html(
-              '<option value="" disabled selected hidden>Pilih Kecamatan</option>'
+            kecamatan_tujuanDropdown.html(
+              '<option value="" disabled selected hidden>Pilih kecamatan_tujuan</option>'
             );
             hargaField.val(""); // Reset harga field
 
-            const filteredKecamatan = ongkirData
+            const filteredkecamatan_tujuan = ongkirData
               .filter((item) => item[1] === selectedKabupaten)
               .map((item) => item[2]);
-            const sortedKecamatan = [...new Set(filteredKecamatan)].sort(
-              (a, b) => a.localeCompare(b)
-            );
+            const sortedkecamatan_tujuan = [
+              ...new Set(filteredkecamatan_tujuan),
+            ].sort((a, b) => a.localeCompare(b));
 
-            populateKecamatan(sortedKecamatan);
+            populatekecamatan_tujuan(sortedkecamatan_tujuan);
           });
 
-          $("#kecamatan").on("change", function () {
-            var selectedKecamatan = $(this).val();
+          $("#kecamatan_tujuan").on("change", function () {
+            var selectedkecamatan_tujuan = $(this).val();
 
             const filteredHarga = ongkirData.find(
-              (item) => item[2] === selectedKecamatan
+              (item) => item[2] === selectedkecamatan_tujuan
             )?.[3];
             if (filteredHarga) {
               hargaField.val(formatRupiah(filteredHarga)); // Format harga ke Rupiah
@@ -576,12 +576,12 @@
             kabupatenDropdown.trigger("change");
           }
 
-          function populateKecamatan(sortedKecamatan) {
-            sortedKecamatan.forEach(function (kec) {
+          function populatekecamatan_tujuan(sortedkecamatan_tujuan) {
+            sortedkecamatan_tujuan.forEach(function (kec) {
               var option = new Option(kec, kec, false, false);
-              kecamatanDropdown.append(option);
+              kecamatan_tujuanDropdown.append(option);
             });
-            kecamatanDropdown.trigger("change");
+            kecamatan_tujuanDropdown.trigger("change");
           }
         }
 
