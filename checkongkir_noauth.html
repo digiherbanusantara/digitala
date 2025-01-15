@@ -150,7 +150,7 @@
 			<!-- Kota Asal -->
 			<div class="col-md-4 mb-4">
 			<label for="kota_asal" class="form-label">Kota Asal</label>
-			<select class="form-control form-label searchable-dropdown" name="kota_asal" id="kota_asal" style="width: 100%; height: 50px;">
+			<select class="form-control form-label searchable-dropdown-kotaasal" name="kota_asal" id="kota_asal" style="width: 100%; height: 50px;">
 				<option value="" disabled selected hidden>Pilih Kota Asal</option>
 			</select>
 			</div>
@@ -262,7 +262,7 @@
     handleDependentDropdown(ongkirData);
 
     // Initialize Select2 on Kota Asal dropdown
-    $('.searchable-dropdown').select2({
+    $('.searchable-dropdown-kotaasal').select2({
       placeholder: 'Pilih Kota Asal',
       allowClear: true
     });
