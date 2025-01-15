@@ -407,6 +407,11 @@
         height: 50px; /* Samakan tinggi elemen */
         font-size: 16px; /* Pastikan font-size cukup besar untuk mobile */
       }
+
+      input[type="text"] {
+        -webkit-appearance: none; /* Hilangkan kontrol native di Safari */
+        appearance: none;
+      }
     </style>
   </head>
 
@@ -922,6 +927,7 @@
           defaultDate: null,
           minuteIncrement: 1,
           secondIncrement: 1,
+          disableMobile: true,
 
           defaultDate: null, // Tidak ada default value
           onOpen: function (selectedDates, dateStr, instance) {
