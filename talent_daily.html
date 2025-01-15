@@ -866,52 +866,6 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
 
     <script>
-      const timeInput = document.getElementById("live_duration_time");
-
-      // Format validation untuk input waktu (HH:MM:SS)
-      timeInput.addEventListener("input", (e) => {
-        const value = e.target.value;
-        const timePattern = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
-
-        if (!timePattern.test(value) && value !== "") {
-          e.target.setCustomValidity("Masukkan waktu dengan format HH:MM:SS");
-        } else {
-          e.target.setCustomValidity("");
-        }
-      });
-
-      // Placeholder autofill dengan contoh format waktu (opsional)
-      timeInput.addEventListener("focus", (e) => {
-        if (!e.target.value) {
-          e.target.value = "00:00:00";
-        }
-      });
-    </script>
-
-    <script>
-      const avgWatchingInput = document.getElementById("avg_watching");
-
-      // Format validation untuk input waktu (HH:MM:SS)
-      avgWatchingInput.addEventListener("input", (e) => {
-        const value = e.target.value;
-        const timePattern = /^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/;
-
-        if (!timePattern.test(value) && value !== "") {
-          e.target.setCustomValidity("Masukkan waktu dengan format HH:MM:SS");
-        } else {
-          e.target.setCustomValidity("");
-        }
-      });
-
-      // Placeholder autofill dengan contoh format waktu (opsional)
-      avgWatchingInput.addEventListener("focus", (e) => {
-        if (!e.target.value) {
-          e.target.value = "00:00:00";
-        }
-      });
-    </script>
-
-    <script>
       // Script untuk start_live
       document.addEventListener("DOMContentLoaded", function () {
         // Setel elemen input dengan placeholder --:--
@@ -959,15 +913,16 @@
           },
         });
 
-        // Inisialisasi Flatpickr untuk live_duration_time
         const liveDurationPicker = flatpickr("#live_duration_time", {
-          enableTime: true, // Aktifkan time picker
-          noCalendar: true, // Hilangkan kalender
-          dateFormat: "H:i:S", // Format waktu dengan detik
-          time_24hr: true, // Gunakan format 24 jam
-          enableSeconds: true, // Tambahkan detik
-          minuteIncrement: 1, // Increment menit
-          secondIncrement: 1, // Increment detik
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i:S",
+          time_24hr: true,
+          enableSeconds: true,
+          defaultDate: null,
+          minuteIncrement: 1,
+          secondIncrement: 1,
+
           defaultDate: null, // Tidak ada default value
           onOpen: function (selectedDates, dateStr, instance) {
             // Reset nilai jika pengguna belum berinteraksi
