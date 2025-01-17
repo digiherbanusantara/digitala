@@ -675,6 +675,12 @@ a:focus {
     color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
   }
 
+  .heading_container.checkongkirjnt h2::after {
+    content: "JNT";
+    display: block;
+    color: #ffab6a; /* Sesuaikan dengan warna yang diinginkan */
+  }
+
   /* Aturan khusus untuk TF CRM */
   .heading_container.tf h2::after {
     content: "TF CRM";

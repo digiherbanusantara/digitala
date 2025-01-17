@@ -125,79 +125,70 @@
 				<li class="active" style="color: #f8842b;">Check Ongkir JNT</li>
 			  </div>
 			<div class="form_container">
-				<div class="heading_container cod">
+				<div class="heading_container checkongkirjnt">
 					<h2>CHECK ONGKIR <span style="color: #ffab6a;">JNT</span></h2>
 				</div>
 				<div class="heading_container2 mb-5">
 					
 				</div>
 						<form method="POST" action="https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec">
-		<div class="row">
-			<!-- Ekspedisi -->
-			<div class="col-md-12 mb-4">
-			<label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
-			<select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
-				<option hidden value="NINJA">NINJA</option>
-				<option value="JNT" selected>JNT</option>
-			</select>
-			</div>
+    <div class="row">
+        <!-- Ekspedisi -->
+        <div class="col-md-12 mb-4">
+            <label for="ekspedisi" class="form-label">Ekspedisi<span class="wajib_diisi">*</span></label>
+            <select class="form-control form-label" id="ekspedisi" name="ekspedisi" style="height: 50px;" required>
+                <option hidden value="NINJA">NINJA</option>
+                <option value="JNT" selected>JNT</option>
+            </select>
+        </div>
 
-			<!-- Separator -->
-			<div class="col-md-12 mb-3">
-			<hr style="border: 1px solid #ccc; margin: 20px 0">
-			</div>
+        <!-- Separator -->
+        <div class="col-md-12 mb-3">
+            <hr style="border: 1px solid #ccc; margin: 20px 0">
+        </div>
 
-			<!-- Kota Asal -->
-			<div class="col-md-4 mb-4">
-			<label for="kota_asal" class="form-label">Kota Asal</label>
-			<select class="form-control form-label searchable-dropdown-kotaasal" name="kota_asal" id="kota_asal" style="width: 100%; height: 50px;">
-				<option value="" disabled selected hidden>Pilih Kota Asal</option>
-			</select>
-			</div>
+        <!-- Kota Asal -->
+        <div class="col-md-4 mb-4">
+            <label for="kota_asal" class="form-label">Kirim Dari</label>
+            <select class="form-control form-label searchable-dropdown-kotaasal" name="kota_asal" id="kota_asal" style="width: 100%; height: 50px;">
+                <option value="" disabled selected hidden>Pilih Kota Asal</option>
+            </select>
+        </div>
 
-			<!-- Kabupaten/Kota Tujuan -->
-			<div class="col-md-4 mb-4">
-			<label for="kabupaten_kota" class="form-label">Kabupaten/Kota Tujuan</label>
-			<select class="form-control form-label searchable-dropdown-city" name="kabupaten_kota" id="kabupaten_kota" style="width: 100%; height: 50px;">
-				<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>
-			</select>
-			</div>
+        <!-- Kecamatan Tujuan -->
+        <div class="col-md-4 mb-4">
+            <label for="kecamatan" class="form-label">Kirim Ke</label>
+            <select class="form-control form-label searchable-dropdown-district" name="kecamatan" id="kecamatan" style="width: 100%; height: 50px;">
+                <option value="" disabled selected hidden>Pilih Kota Tujuan</option>
+            </select>
+        </div>
 
-			<!-- Kecamatan Tujuan -->
-			<div class="col-md-4 mb-4">
-			<label for="kecamatan" class="form-label">Kecamatan Tujuan</label>
-			<select class="form-control form-label searchable-dropdown-district" name="kecamatan" id="kecamatan" style="width: 100%; height: 50px;">
-				<option value="" disabled selected hidden>Pilih Kecamatan</option>
-			</select>
-			</div>
+        <!-- Berat -->
+        <div class="col-md-4 mb-4">
+            <label for="berat" class="form-label">Berat (Kg)</label>
+            <input type="number" class="form-control form-label" id="berat" name="berat" placeholder="Masukan Berat" value="1" style="height: 50px;" min="1" value="1">
+        </div>
 
-			
+        <!-- Ongkir -->
+        <div class="col-md-12 mb-4">
+            <label for="harga" class="form-label">Ongkir</label>
+            <div class="input-group align-items-center" style="display: flex; justify-content: space-between;">
+                <input type="text" class="form-control form-label" id="harga" name="harga" readonly placeholder="Ongkir akan otomatis diisi" style="height: 50px; width: 80%;">
+                <span class="input-group-text" id="copyHarga" style="cursor: pointer; height: 100%; align-items: center;">
+                    <i class="fa fa-copy" aria-hidden="true"></i>
+                </span>
+            </div>
+            <small class="form-text text-muted">*Harga di atas adalah harga total berdasarkan berat yang diinput</small>
+        </div>
 
-				<!-- Tambahkan tombol Copy -->
-			<div class="col-md-12 mb-4">
-				<label for="harga" class="form-label">Ongkir</label>
-				<div class="input-group align-items-center" style="display: flex; justify-content: space-between;">
-					<!-- Input Field -->
-					<input type="text" class="form-control form-label" id="harga" name="harga" readonly placeholder="Ongkir akan otomatis diisi" style="height: 50px; width: 80%;">
-					<!-- Icon Copy -->
-					<span class="input-group-text" id="copyHarga" style="cursor: pointer; height: 100%;  align-items: center;">
-						<i class="fa fa-copy" aria-hidden="true"></i>
-					</span>
-				</div>
-				<small class="form-text text-muted">*Harga diatas adalah harga per <strong>1 Kg</strong></small>
-			</div>
+        <!-- Hidden Input -->
+        <input type="hidden" name="formType" value="codcrm">
 
-
-
-			<!-- Hidden Input -->
-			<input type="hidden" name="formType" value="codcrm">
-
-			<!-- Submit Button -->
-			<div class="d-flex">
-			
-			</div>
-		</div>
-		</form>
+        <!-- Submit Button -->
+        <div class="d-flex">
+        </div>
+    </div>
+						</form>
 
 			</div>
 		</div>
@@ -241,158 +232,136 @@
 
 
 
-  	<script>
-	document.addEventListener('DOMContentLoaded', function () {
-  // Fetch data from Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbxB4OZcuWxzABxTI71y1wvzFbE8ZMjwI7Nl6tYJd_hTfbzHwj1WVFK0r5e8wCVcOpFv/exec')
-    .then(response => response.json())
-    .then(data => {
-      const sortedKotaAsal = [...new Set(data.checkongkirjnt.map(item => item[0]))].sort();
-      populateKotaAsal(sortedKotaAsal, data.checkongkirjnt);
-    });
-
-  function populateKotaAsal(sortedKotaAsal, ongkirData) {
-    var kotaAsalDropdown = $('#kota_asal');
-
-    sortedKotaAsal.forEach(function (kota) {
-      var option = new Option(kota, kota, false, false);
-      kotaAsalDropdown.append(option);
-    });
-
-    handleDependentDropdown(ongkirData);
-
-    // Initialize Select2 on Kota Asal dropdown
-    $('.searchable-dropdown-kotaasal').select2({
-      placeholder: 'Pilih Kota Asal',
-      allowClear: true
-    });
-
-    $('.searchable-dropdown-city').select2({
-      placeholder: 'Pilih Kabupaten / Kota',
-      allowClear: true
-    });
-
-    $('.searchable-dropdown-district').select2({
-      placeholder: 'Pilih Kecamatan',
-      allowClear: true
-    });
-  }
-
-  function handleDependentDropdown(ongkirData) {
-    var kabupatenDropdown = $('#kabupaten_kota');
-    var kecamatanDropdown = $('#kecamatan');
-    var hargaField = $('#harga');
-
-    $('#kota_asal').on('change', function () {
-      var selectedKotaAsal = $(this).val();
-      kabupatenDropdown.html('<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>');
-      kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
-      hargaField.val(''); // Reset harga field
-
-      const filteredKabupaten = ongkirData.filter(item => item[0] === selectedKotaAsal).map(item => item[1]);
-      const sortedKabupaten = [...new Set(filteredKabupaten)].sort((a, b) => a.localeCompare(b));
-
-      populateKabupaten(sortedKabupaten);
-    });
-
-    $('#kabupaten_kota').on('change', function () {
-      var selectedKabupaten = $(this).val();
-      kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan</option>');
-      hargaField.val(''); // Reset harga field
-
-      const filteredKecamatan = ongkirData.filter(item => item[1] === selectedKabupaten).map(item => item[2]);
-      const sortedKecamatan = [...new Set(filteredKecamatan)].sort((a, b) => a.localeCompare(b));
-
-      populateKecamatan(sortedKecamatan);
-    });
-
-    $('#kecamatan').on('change', function () {
-      var selectedKecamatan = $(this).val();
-
-      const filteredHarga = ongkirData.find(item => item[2] === selectedKecamatan)?.[3];
-      if (filteredHarga) {
-        hargaField.val(formatRupiah(filteredHarga)); // Format harga ke Rupiah
-      } else {
-        hargaField.val('Harga tidak tersedia');
-      }
-    });
-
-    function populateKabupaten(sortedKabupaten) {
-      sortedKabupaten.forEach(function (kab) {
-        var option = new Option(kab, kab, false, false);
-        kabupatenDropdown.append(option);
-      });
-      kabupatenDropdown.trigger('change');
-    }
-
-    function populateKecamatan(sortedKecamatan) {
-      sortedKecamatan.forEach(function (kec) {
-        var option = new Option(kec, kec, false, false);
-        kecamatanDropdown.append(option);
-      });
-      kecamatanDropdown.trigger('change');
-    }
-  }
-
-  // Fungsi untuk memformat angka menjadi Rupiah
-  function formatRupiah(angka) {
-    return 'Rp' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  }
-});
-
-	</script>
+ 
 
 
 <!-- Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Inisialisasi SweetAlert2
-    const Swal = window.Swal;
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			fetch('https://script.google.com/macros/s/AKfycbxXaWKGQeADM0vvj-HvlBQaLrSpao5xKPSE_UH68pZuqUVMDFg2NeAZMTnEDvBlh3_z/exec')
+				.then(response => response.json())
+				.then(data => {
+					const sortedKotaAsal = [...new Set(data.checkongkirjntnew.map(item => item[0]))].sort();
+					populateKotaAsal(sortedKotaAsal, data.checkongkirjntnew);
+				});
 
-    // Tombol copy handler
-    document.getElementById('copyHarga').addEventListener('click', function () {
-        const hargaField = document.getElementById('harga');
-        const hargaValue = hargaField.value;
+			function populateKotaAsal(sortedKotaAsal, ongkirDataNew) {
+				const kotaAsalDropdown = $('#kota_asal');
 
-        if (hargaValue && hargaValue !== 'Harga tidak tersedia') {
-            // Salin nilai ke clipboard
-            navigator.clipboard.writeText(hargaValue)
+				sortedKotaAsal.forEach(function (kota) {
+					const option = new Option(kota, kota, false, false);
+					kotaAsalDropdown.append(option);
+				});
+
+				handleDependentDropdown(ongkirDataNew);
+
+				$('.searchable-dropdown-kotaasal').select2({
+					placeholder: 'Pilih Kota Asal',
+					allowClear: true,
+				});
+
+				$('.searchable-dropdown-district').select2({
+					placeholder: 'Pilih Kota Tujuan',
+					allowClear: true,
+				});
+			}
+
+			function handleDependentDropdown(ongkirDataNew) {
+				const kecamatanDropdown = $('#kecamatan');
+				const hargaField = $('#harga');
+				const beratField = $('#berat');
+
+				$('#kota_asal').on('change', function () {
+					const selectedKotaAsal = $(this).val();
+					kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan dan Kabupaten/Kota</option>');
+					hargaField.val('');
+
+					const filteredKecamatan = ongkirDataNew
+						.filter(item => item[0] === selectedKotaAsal)
+						.map(item => item[1]);
+					const sortedKecamatan = [...new Set(filteredKecamatan)].sort();
+
+					populateKecamatan(sortedKecamatan);
+				});
+
+				$('#kecamatan, #berat').on('change input', function () {
+					const selectedKecamatan = $('#kecamatan').val();
+					const berat = parseFloat(beratField.val()) || 1;
+
+					const filteredHarga = ongkirDataNew.find(item => item[1] === selectedKecamatan)?.[2];
+					if (filteredHarga) {
+						const totalHarga = berat * parseFloat(filteredHarga);
+						hargaField.val(formatRupiah(totalHarga));
+					} else {
+						hargaField.val('Harga tidak tersedia');
+					}
+				});
+
+				function populateKecamatan(sortedKecamatan) {
+					sortedKecamatan.forEach(function (kec) {
+						const option = new Option(kec, kec, false, false);
+						kecamatanDropdown.append(option);
+					});
+					kecamatanDropdown.trigger('change');
+				}
+			}
+
+			function formatRupiah(angka) {
+				return 'Rp' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+			}
+		});
+	</script>
+
+
+	<script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi SweetAlert2
+        const Swal = window.Swal;
+
+        // Tombol copy handler
+        document
+          .getElementById("copyHarga")
+          .addEventListener("click", function () {
+            const hargaField = document.getElementById("harga");
+            const hargaValue = hargaField.value;
+
+            if (hargaValue && hargaValue !== "Harga tidak tersedia") {
+              // Salin nilai ke clipboard
+              navigator.clipboard
+                .writeText(hargaValue)
                 .then(() => {
-                    // Tampilkan pesan sukses menggunakan SweetAlert2
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil!',
-                        text: 'Ongkir berhasil disalin ke clipboard.',
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
+                  // Tampilkan pesan sukses menggunakan SweetAlert2
+                  Swal.fire({
+                    icon: "success",
+                    title: "Berhasil!",
+                    text: "Ongkir berhasil disalin ke clipboard.",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
                 })
-                .catch(err => {
-                    // Tampilkan pesan error jika salin gagal
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Gagal!',
-                        text: 'Terjadi kesalahan saat menyalin.',
-                        showConfirmButton: false,
-                        timer: 2000
-                    });
+                .catch((err) => {
+                  // Tampilkan pesan error jika salin gagal
+                  Swal.fire({
+                    icon: "error",
+                    title: "Gagal!",
+                    text: "Terjadi kesalahan saat menyalin.",
+                    showConfirmButton: false,
+                    timer: 2000,
+                  });
                 });
-        } else {
-            // Tampilkan pesan jika field kosong
-            Swal.fire({
-                icon: 'warning',
-                title: 'Peringatan!',
-                text: 'Field ongkir kosong atau tidak valid.',
+            } else {
+              // Tampilkan pesan jika field kosong
+              Swal.fire({
+                icon: "warning",
+                title: "Peringatan!",
+                text: "Field ongkir kosong atau tidak valid.",
                 showConfirmButton: false,
-                timer: 2000
-            });
-        }
-    });
-});
-</script>
-
-
-
+                timer: 2000,
+              });
+            }
+          });
+      });
+    </script>
 
 
 	

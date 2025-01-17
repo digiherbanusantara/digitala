@@ -344,7 +344,7 @@
 
                   <!-- Kota Asal -->
                   <div class="col-md-4 mb-4">
-                    <label for="kota_asal" class="form-label">Kota Asal</label>
+                    <label for="kota_asal" class="form-label">Kirim Dari</label>
                     <select
                       class="form-control form-label searchable-dropdown-kotaasal"
                       name="kota_asal"
@@ -352,53 +352,49 @@
                       style="width: 100%; height: 50px"
                     >
                       <option value="" disabled selected hidden>
-                        Pilih Kota
+                        Pilih Kota Asal
                       </option>
                     </select>
                   </div>
 
-                  <!-- Kabupaten/Kota Tujuan -->
+                  <!-- Kecamatan Tujuan -->
                   <div class="col-md-4 mb-4">
-                    <label for="kabupaten_kota_tujuan" class="form-label"
-                      >Kabupaten/Kota Tujuan</label
-                    >
-                    <select
-                      class="form-control form-label searchable-dropdown-city"
-                      name="kabupaten_kota_tujuan"
-                      id="kabupaten_kota_tujuan"
-                      style="width: 100%; height: 50px"
-                    >
-                      <option value="" disabled selected hidden>
-                        Pilih Kabupaten/Kota
-                      </option>
-                    </select>
-                  </div>
-
-                  <!-- kecamatan_tujuan Tujuan -->
-                  <div class="col-md-4 mb-4">
-                    <label for="kecamatan_tujuan" class="form-label"
-                      >Kecamatan Tujuan</label
-                    >
+                    <label for="kecamatan" class="form-label">Kirim Ke</label>
                     <select
                       class="form-control form-label searchable-dropdown-district"
-                      name="kecamatan_tujuan"
-                      id="kecamatan_tujuan"
+                      name="kecamatan"
+                      id="kecamatan"
                       style="width: 100%; height: 50px"
                     >
                       <option value="" disabled selected hidden>
-                        Pilih Kecamatan
+                        Pilih Kota Tujuan
                       </option>
                     </select>
                   </div>
 
-                  <!-- Tambahkan tombol Copy -->
+                  <!-- Berat -->
+                  <div class="col-md-4 mb-4">
+                    <label for="berat" class="form-label">Berat (Kg)</label>
+                    <input
+                      type="number"
+                      class="form-control form-label"
+                      id="berat"
+                      name="berat"
+                      placeholder="Masukan Berat"
+                      value="1"
+                      style="height: 50px"
+                      min="1"
+                      value="1"
+                    />
+                  </div>
+
+                  <!-- Ongkir -->
                   <div class="col-md-12 mb-4">
                     <label for="harga" class="form-label">Ongkir</label>
                     <div
                       class="input-group align-items-center"
                       style="display: flex; justify-content: space-between"
                     >
-                      <!-- Input Field -->
                       <input
                         type="text"
                         class="form-control form-label"
@@ -408,7 +404,6 @@
                         placeholder="Ongkir akan otomatis diisi"
                         style="height: 50px; width: 80%"
                       />
-                      <!-- Icon Copy -->
                       <span
                         class="input-group-text"
                         id="copyHarga"
@@ -422,8 +417,8 @@
                       </span>
                     </div>
                     <small class="form-text text-muted"
-                      >*Harga diatas adalah harga per
-                      <strong>1 Kg</strong></small
+                      >*Harga di atas adalah harga total berdasarkan berat yang
+                      diinput</small
                     >
                   </div>
 
@@ -467,133 +462,89 @@
     <!-- bootstrap js -->
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
-
-    <script src="js/digitala.js"></script>
+    <!-- 
+    <script src="js/digitala.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Fetch data from Google Apps Script
-        fetch(
-          "https://script.google.com/macros/s/AKfycbxB4OZcuWxzABxTI71y1wvzFbE8ZMjwI7Nl6tYJd_hTfbzHwj1WVFK0r5e8wCVcOpFv/exec"
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const sortedKotaAsal = [
-              ...new Set(data.checkongkirjnt.map((item) => item[0])),
-            ].sort();
-            populateKotaAsal(sortedKotaAsal, data.checkongkirjnt);
-          });
+    	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			fetch('https://script.google.com/macros/s/AKfycbxXaWKGQeADM0vvj-HvlBQaLrSpao5xKPSE_UH68pZuqUVMDFg2NeAZMTnEDvBlh3_z/exec')
+				.then(response => response.json())
+				.then(data => {
+					const sortedKotaAsal = [...new Set(data.checkongkirjntnew.map(item => item[0]))].sort();
+					populateKotaAsal(sortedKotaAsal, data.checkongkirjntnew);
+				});
 
-        function populateKotaAsal(sortedKotaAsal, ongkirData) {
-          var kotaAsalDropdown = $("#kota_asal");
+			function populateKotaAsal(sortedKotaAsal, ongkirDataNew) {
+				const kotaAsalDropdown = $('#kota_asal');
 
-          sortedKotaAsal.forEach(function (kota) {
-            var option = new Option(kota, kota, false, false);
-            kotaAsalDropdown.append(option);
-          });
+				sortedKotaAsal.forEach(function (kota) {
+					const option = new Option(kota, kota, false, false);
+					kotaAsalDropdown.append(option);
+				});
 
-          handleDependentDropdown(ongkirData);
+				handleDependentDropdown(ongkirDataNew);
 
-          // Initialize Select2 on Kota Asal dropdown
-          $(".searchable-dropdown-kotaasal").select2({
-            placeholder: "Pilih Kota Asal",
-            allowClear: true,
-          });
+				$('.searchable-dropdown-kotaasal').select2({
+					placeholder: 'Pilih Kota Asal',
+					allowClear: true,
+				});
 
-          $(".searchable-dropdown-city").select2({
-            placeholder: "Pilih Kabupaten / Kota",
-            allowClear: true,
-          });
+				$('.searchable-dropdown-district').select2({
+					placeholder: 'Pilih Kota Tujuan',
+					allowClear: true,
+				});
+			}
 
-          $(".searchable-dropdown-district").select2({
-            placeholder: "Pilih Kecamatan Tujuan",
-            allowClear: true,
-          });
-        }
+			function handleDependentDropdown(ongkirDataNew) {
+				const kecamatanDropdown = $('#kecamatan');
+				const hargaField = $('#harga');
+				const beratField = $('#berat');
 
-        function handleDependentDropdown(ongkirData) {
-          var kabupatenDropdown = $("#kabupaten_kota_tujuan");
-          var kecamatan_tujuanDropdown = $("#kecamatan_tujuan");
-          var hargaField = $("#harga");
+				$('#kota_asal').on('change', function () {
+					const selectedKotaAsal = $(this).val();
+					kecamatanDropdown.html('<option value="" disabled selected hidden>Pilih Kecamatan dan Kabupaten/Kota</option>');
+					hargaField.val('');
 
-          $("#kota_asal").on("change", function () {
-            var selectedKotaAsal = $(this).val();
-            kabupatenDropdown.html(
-              '<option value="" disabled selected hidden>Pilih Kabupaten/Kota</option>'
-            );
-            kecamatan_tujuanDropdown.html(
-              '<option value="" disabled selected hidden>Pilih kecamatan_tujuan</option>'
-            );
-            hargaField.val(""); // Reset harga field
+					const filteredKecamatan = ongkirDataNew
+						.filter(item => item[0] === selectedKotaAsal)
+						.map(item => item[1]);
+					const sortedKecamatan = [...new Set(filteredKecamatan)].sort();
 
-            const filteredKabupaten = ongkirData
-              .filter((item) => item[0] === selectedKotaAsal)
-              .map((item) => item[1]);
-            const sortedKabupaten = [...new Set(filteredKabupaten)].sort(
-              (a, b) => a.localeCompare(b)
-            );
+					populateKecamatan(sortedKecamatan);
+				});
 
-            populateKabupaten(sortedKabupaten);
-          });
+				$('#kecamatan, #berat').on('change input', function () {
+					const selectedKecamatan = $('#kecamatan').val();
+					const berat = parseFloat(beratField.val()) || 1;
 
-          $("#kabupaten_kota_tujuan").on("change", function () {
-            var selectedKabupaten = $(this).val();
-            kecamatan_tujuanDropdown.html(
-              '<option value="" disabled selected hidden>Pilih kecamatan_tujuan</option>'
-            );
-            hargaField.val(""); // Reset harga field
+					const filteredHarga = ongkirDataNew.find(item => item[1] === selectedKecamatan)?.[2];
+					if (filteredHarga) {
+						const totalHarga = berat * parseFloat(filteredHarga);
+						hargaField.val(formatRupiah(totalHarga));
+					} else {
+						hargaField.val('Harga tidak tersedia');
+					}
+				});
 
-            const filteredkecamatan_tujuan = ongkirData
-              .filter((item) => item[1] === selectedKabupaten)
-              .map((item) => item[2]);
-            const sortedkecamatan_tujuan = [
-              ...new Set(filteredkecamatan_tujuan),
-            ].sort((a, b) => a.localeCompare(b));
+				function populateKecamatan(sortedKecamatan) {
+					sortedKecamatan.forEach(function (kec) {
+						const option = new Option(kec, kec, false, false);
+						kecamatanDropdown.append(option);
+					});
+					kecamatanDropdown.trigger('change');
+				}
+			}
 
-            populatekecamatan_tujuan(sortedkecamatan_tujuan);
-          });
+			function formatRupiah(angka) {
+				return 'Rp' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+			}
+		});
+	</script>
 
-          $("#kecamatan_tujuan").on("change", function () {
-            var selectedkecamatan_tujuan = $(this).val();
 
-            const filteredHarga = ongkirData.find(
-              (item) => item[2] === selectedkecamatan_tujuan
-            )?.[3];
-            if (filteredHarga) {
-              hargaField.val(formatRupiah(filteredHarga)); // Format harga ke Rupiah
-            } else {
-              hargaField.val("Harga tidak tersedia");
-            }
-          });
-
-          function populateKabupaten(sortedKabupaten) {
-            sortedKabupaten.forEach(function (kab) {
-              var option = new Option(kab, kab, false, false);
-              kabupatenDropdown.append(option);
-            });
-            kabupatenDropdown.trigger("change");
-          }
-
-          function populatekecamatan_tujuan(sortedkecamatan_tujuan) {
-            sortedkecamatan_tujuan.forEach(function (kec) {
-              var option = new Option(kec, kec, false, false);
-              kecamatan_tujuanDropdown.append(option);
-            });
-            kecamatan_tujuanDropdown.trigger("change");
-          }
-        }
-
-        // Fungsi untuk memformat angka menjadi Rupiah
-        function formatRupiah(angka) {
-          return "Rp" + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-      });
-    </script>
-
-    <!-- Script -->
-    <script>
+	<script>
       document.addEventListener("DOMContentLoaded", function () {
         // Inisialisasi SweetAlert2
         const Swal = window.Swal;
@@ -642,6 +593,5 @@
           });
       });
     </script>
-  </body>
 </html>
 <!-- new -->
