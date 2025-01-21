@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //tambahkan disini jika ingin menambahkan data dropdown yang di ambil dari spreadsheet
   // Populate dropdowns (asynchronous request)
   fetch(
-    "https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec"
+    "https://script.google.com/macros/s/AKfycbzUMO4XXBkoM6HoyUxFdf21t38CnmbRXOk8wUgehlFavD_wX7G7MZANtegPn432ZZa5/exec"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -391,7 +391,7 @@ function logout() {
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch data from Google Apps Script
   fetch(
-    "https://script.google.com/macros/s/AKfycbzwFepZyQuY7o_KxmsCtjsqINtxvHFaG8_FxjE33pMCjk26TEfUtcfjdvol6F29YOw0/exec"
+    "https://script.google.com/macros/s/AKfycbzUMO4XXBkoM6HoyUxFdf21t38CnmbRXOk8wUgehlFavD_wX7G7MZANtegPn432ZZa5/exec"
   )
     .then((response) => response.json())
     .then((data) => {
